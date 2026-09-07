@@ -1,0 +1,11 @@
+schema: spec-driven
+context: |
+  VoiceKey is an ESP-IDF v5.5.2 ESP32-S3 firmware project targeting Home Assistant Voice Preview Edition.
+  BrainStorm.md is the product design. The first prototype uses one USB cable for a persistent UAC microphone and HID keyboard.
+  Physical mute overrides software. Preserve XMOS firmware. No network wake service or custom Mac driver.
+  The Mac is awake and unlocked, and ChatGPT is already logged in and running in the background.
+  The user accepts a short pause after the wake word. LED detection is not proof that the host is recording.
+  No hardware is currently available. Keep build/unit-test results separate from device and acoustic acceptance.
+rules:
+  tasks:
+    - Do not mark target-word or physical-device acceptance complete without corresponding evidence.
