@@ -1,0 +1,3 @@
+#pragma once
+#define CONFIG_VOICEKEY_COOLDOWN_MS 2000
+#define CONFIG_VOICEKEY_PCM_GAIN 1

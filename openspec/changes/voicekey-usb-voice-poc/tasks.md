@@ -1,3 +1,5 @@
+> SUPERSEDED by `migrate-respeaker-xvf3800`. Retained as historical Voice PE planning/evidence; not current hardware instructions.
+
 ## 1. 工程与依赖
 
 - [x] 1.1 创建 ESP-IDF 工程、分区、固定组件依赖与可复现构建入口

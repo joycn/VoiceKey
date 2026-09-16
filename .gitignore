@@ -6,3 +6,6 @@ firmware/sdkconfig.old
 build-host/
 __pycache__/
 *.pyc
+
+# Generated local BMad workflow renders
+_bmad/render/

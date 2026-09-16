@@ -1,3 +1,5 @@
+> 历史评审（已被替代）：针对旧Voice PE设计；当前唯一目标及有效验证见`BrainStorm.md`和`docs/validation-status.md`。保留原始评审内容，不作为新板验证证据。
+
 # BrainStorm.md 讨论审阅记录
 
 日期：2026-09-07。对象：[BrainStorm.md](../../BrainStorm.md)。按构想成熟度审阅，发现表示需要讨论或验证，不代表已证实的实现缺陷。未修改原文，未进行硬件或主机实测。

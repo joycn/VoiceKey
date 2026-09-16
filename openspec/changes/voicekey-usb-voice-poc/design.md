@@ -1,3 +1,5 @@
+> SUPERSEDED by `migrate-respeaker-xvf3800`. Retained as historical Voice PE planning/evidence; not current hardware instructions.
+
 ## Context
 
 见 proposal.md。提案创建前仓库没有固件，用户暂无硬件。采用 ESP-IDF v5.5.2，ESP32-S3，16 MB Flash / 8 MB Octal PSRAM；板级参数必须与实物版本核对。官方 ESPHome voice_kit 和 XMOS 源码作为接口依据，不移植整个 ESPHome 运行时。

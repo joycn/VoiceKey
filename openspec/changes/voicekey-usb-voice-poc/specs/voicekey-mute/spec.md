@@ -1,3 +1,5 @@
+> SUPERSEDED by `migrate-respeaker-xvf3800`. Retained as historical Voice PE planning/evidence; not current hardware instructions.
+
 ## Purpose
 
 保留 Voice PE 的物理麦克风静音语义，在本地检测与 USB 音频同时工作时确保静音优先于软件操作，并清除尚未送出的音频和触发以避免解除静音后的历史重放。

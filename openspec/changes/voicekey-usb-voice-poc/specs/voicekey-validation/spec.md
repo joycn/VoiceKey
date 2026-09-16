@@ -1,3 +1,5 @@
+> SUPERSEDED by `migrate-respeaker-xvf3800`. Retained as historical Voice PE planning/evidence; not current hardware instructions.
+
 ## Purpose
 
 为本项目建立可重复的固件构建与逻辑测试，并明确记录设备和主机实测证据，避免将开发环境验证误认为远场效果、USB 兼容性或对话体验已经达到产品验收要求。

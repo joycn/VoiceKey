@@ -1,3 +1,5 @@
+> SUPERSEDED by `migrate-respeaker-xvf3800`. Retained as historical Voice PE planning/evidence; not current hardware instructions.
+
 ## Purpose
 
 将本地语音检测和物理按钮转换为桌面应用可接收的键盘触发，使用户在规定主机条件下短暂停顿后进入语音会话，并清楚区分唤醒反馈与应用收音就绪。

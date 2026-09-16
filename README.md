@@ -1,29 +1,25 @@
 # VoiceKey
 
-基于 Home Assistant Voice Preview Edition 的 ESP32-S3 固件原型：本地唤醒 + 标准 USB 麦克风 + HID 键盘。
+reSpeaker XVF3800 USB 4-Mic Array + **标准 XIAO ESP32S3** 固件原型。唯一日常连接是 XIAO 的 USB-C：同时提供麦克风、ChatGPT 播放和 F18 键盘。默认使用接在 reSpeaker 3.5 mm 接口上的有源音箱；无需常驻 Mac 软件。
 
-产品设计见 [BrainStorm.md](BrainStorm.md)，实施计划见 [OpenSpec 变更](openspec/changes/voicekey-usb-voice-poc/proposal.md)。
+开发唤醒词为 **Hi ESP**。**Hey Chat / Hello Chat 尚未完成**。用户说完唤醒词后仍需短暂停顿；蓝灯仅表示检测成功，不表示 ChatGPT 已开始收音。无硬件，编译和测试不能证明 AEC、声学或设备验收通过。
 
-本工程默认唤醒词为 **Hi ESP**（ESP-SR 内置模型），不是 Hey Chat。目标词模型与实机验收分别记录，不能将当前原型视为产品验收通过。
-
-## 开发入口
+产品设计见 [BrainStorm.md](BrainStorm.md)，迁移计划见 [OpenSpec](openspec/changes/migrate-respeaker-xvf3800/proposal.md)，结果见 [验证记录](docs/validation-status.md)。
 
 ```bash
-./scripts/test.sh                  # 纯 C 核心逻辑 + UBSan
-./scripts/build.sh                 # ESP32-S3 固件构建，不烧录
-./scripts/test-descriptors.sh      # 依赖下载后检查实际 USB 描述符
-./scripts/test-usb.sh              # 实际 USB 回调与核心状态，模拟传输边界
+./scripts/test.sh
+./scripts/build.sh                 # 只构建，默认不烧录
+./scripts/test-descriptors.sh
+./scripts/test-usb.sh
+./scripts/validate-images.py
+openspec validate migrate-respeaker-xvf3800 --strict
 ```
 
-先按 [构建说明](docs/build.md) 安装 ESP-IDF v5.5.2 及依赖。硬件准备好后按 [实机验收手册](docs/hardware-validation.md) 核对板版本、恢复方法，再显式烧录。
+- UAC2 输入：16 kHz、16-bit、mono；输出：48 kHz、16-bit、stereo，异步显式反馈。
+- XVF3800 主时钟，XIAO 从模式，48 kHz / 32-bit stereo 全双工。左声道自动波束 `(6,3)` 经状态化抗混叠 FIR 降采样，USB 和 WakeNet 共用结果，队列独立。
+- I2C 独立任务每 20 ms 查询；失败或状态超过 100 ms 时关闭采集和新唤醒。硬件静音来自 X0D30，永不写入解除静音；麦克风静音不停止播放。
+- 主机播放音量/静音在进入 XMOS 前应用，播放同时作为 XMOS AEC 参考。停止、欠载和断连补零并丢弃旧数据。不承诺高保真或已验证的回声消除效果。
+- 8 MB Flash / 8 MB Octal PSRAM；4 MB 应用、3 MB 模型，无 OTA、CDC、UART0 控制台或旧板 LED GPIO。
+- [一次性 HID 诊断](docs/build.md)使用现有端点 0；XMOS USB 仅用于单独的维护/恢复，不自动刷写。
 
-## 实现边界
-
-- USB UAC2：VoiceKey Microphone，16 kHz / 16-bit / mono；HID interface：VoiceKey，默认 F18。
-- XMOS 输出同一声道分发给 USB 和 WakeNet，消费者独立；USB 停读时不累积历史音频。
-- 物理静音优先；红灯表示静音，蓝灯表示有效触发，黄灯表示初始化/音频/模型故障。蓝灯不表示 ChatGPT 已开始收音。
-- 默认按键保持 30 ms、触发冷却 2 秒、触发排队过期 200 ms。没有主机会话状态回传，冷却不是“已进入对话”的检测。
-- 需要 Mac 唤醒且已解锁，ChatGPT 已登录并后台运行，完成权限、输入设备和快捷键配置；允许说完唤醒词后短暂停顿。
-- 不修改 XMOS 固件，不写 eFuse，不安装 Mac 驱动，不使用 Wi-Fi、蓝牙、ChatGPT API 或云端唤醒。
-
-当前验证状态见 [验证记录](docs/validation-status.md)。
+Mac 需保持唤醒且已解锁，ChatGPT 已登录并后台运行；事先配置输入、输出、权限和 F18。详见[实机清单](docs/hardware-validation.md)。

@@ -1,8 +1,4 @@
 menu "VoiceKey"
-config VOICEKEY_PCM_CHANNEL
-    int "XMOS I2S channel selected for BOTH consumers"
-    range 0 1
-    default 0
 config VOICEKEY_PCM_GAIN
     int "PCM integer gain (saturating)"
     range 1 8

@@ -14,5 +14,6 @@ mkdir -p "$repo_root/build-host"
     -I"$repo_root/firmware/components/voicekey_core/include" \
     "$repo_root/firmware/components/voicekey_usb/usb_device.c" \
     "$repo_root/firmware/components/voicekey_core/voicekey_core.c" \
-    "$repo_root/tests/test_usb.c" -o "$repo_root/build-host/test_usb"
+    "$repo_root/firmware/components/voicekey_core/voicekey_audio.c" \
+    "$repo_root/tests/test_usb.c" -lm -o "$repo_root/build-host/test_usb"
 "$repo_root/build-host/test_usb"

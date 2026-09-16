@@ -1,11 +1,15 @@
 schema: spec-driven
 context: |
-  VoiceKey is an ESP-IDF v5.5.2 ESP32-S3 firmware project targeting Home Assistant Voice Preview Edition.
-  BrainStorm.md is the product design. The first prototype uses one USB cable for a persistent UAC microphone and HID keyboard.
-  Physical mute overrides software. Preserve XMOS firmware. No network wake service or custom Mac driver.
-  The Mac is awake and unlocked, and ChatGPT is already logged in and running in the background.
-  The user accepts a short pause after the wake word. LED detection is not proof that the host is recording.
-  No hardware is currently available. Keep build/unit-test results separate from device and acoustic acceptance.
+  VoiceKey exclusively targets reSpeaker XVF3800 USB 4-Mic Array plus standard XIAO ESP32S3.
+  ESP-IDF5.5.2, TinyUSB0.18.0~6, ESP-SR2.2.0; 8MB Flash and 8MB Octal PSRAM.
+  One XIAO USB cable carries UAC2 microphone16k mono, speaker48k stereo, and F18 HID.
+  Default active speakers use reSpeaker3.5mm. USB OUT is both playback and XMOS AEC reference.
+  XVF3800 master / XIAO slave, continuous48k32bitstereo duplex; left beam(6,3), FIR decimate3.
+  Physical X0D30 mute never stops playback. Control failure or age>100ms closes capture and new wake.
+  XMOS firmware is pinned1.0.8; separate XMOS USB is maintenance/recovery only, never auto-flash.
+  BrainStorm.md is the current product design. The Voice PE change is retained only as superseded history.
+  The Mac is awake/unlocked and ChatGPT logged in/background; a short pause after wake remains required.
+  Hi ESP is development only; Hey Chat/Hello Chat are incomplete. No hardware is currently available.
 rules:
   tasks:
-    - Do not mark target-word or physical-device acceptance complete without corresponding evidence.
+    - Do not mark target-word or physical-device/AEC/acoustic acceptance complete without corresponding evidence.

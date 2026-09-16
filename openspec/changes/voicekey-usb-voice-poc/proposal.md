@@ -1,3 +1,5 @@
+> SUPERSEDED by `migrate-respeaker-xvf3800`. Retained as historical Voice PE planning/evidence; not current hardware instructions.
+
 ## Why
 
 VoiceKey 要验证在不自研 PCB 的前提下，使用 Home Assistant Voice Preview Edition 为 Mac 提供远场麦克风和本地语音触发入口。依据 BrainStorm.md，用户允许唤醒后短暂停顿，且 Mac 已解锁、保持唤醒、ChatGPT 已登录并在后台运行。

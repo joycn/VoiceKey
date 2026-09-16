@@ -1,3 +1,5 @@
+> SUPERSEDED by `migrate-respeaker-xvf3800`. Retained as historical Voice PE planning/evidence; not current hardware instructions.
+
 ## Purpose
 
 为桌面应用提供常驻标准 USB 麦克风，并将同一音频源供给本地唤醒检测，保证两种使用方式并行时可独立运行与恢复，且不因触发事件而重新枚举设备。
