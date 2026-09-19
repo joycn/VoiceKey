@@ -12,7 +12,7 @@ context: []
 <frozen-after-approval reason="User explicitly approved and requested full implementation">
 
 ## Intent
-Replace Voice PE with reSpeaker XVF3800 USB 4-Mic Array + standard XIAO ESP32S3 as the only firmware target. Implement firmware, tests, OpenSpec and all current product/technical documents. Same XIAO USB cable carries microphone, ChatGPT playback and F18 keyboard, without resident Mac software. Default 3.5 mm active speakers connect to reSpeaker. Mic mute never stops playback.
+Replace Voice PE with reSpeaker XVF3800 USB 4-Mic Array + standard XIAO ESP32S3 as the only firmware target. Implement firmware, tests, OpenSpec and all current product/technical documents. Same XIAO USB cable carries microphone, ChatGPT playback and Shift+Option+Command+S keyboard, without resident Mac software. Default 3.5 mm active speakers connect to reSpeaker. Mic mute never stops playback.
 
 ## Boundaries & Constraints
 - XIAO: 8 MB Flash, 8 MB Octal PSRAM, IDF 5.5.2, TinyUSB 0.18.0~6, ESP-SR 2.2.0; remove led_strip. NVS/PHY retained; app 4 MB, model 3 MB; validate partition/image bounds; no OTA.
@@ -21,7 +21,7 @@ Replace Voice PE with reSpeaker XVF3800 USB 4-Mic Array + standard XIAO ESP32S3 
 - Stateful anti-alias FIR decimate3 from left48k to16k then s16, one result feeds independent USB/WakeNet queues. Passband0–6.5k ripple≤0.2dB, stopband≥8k attenuation≥60dB. Mute/inputfailure/recovery reset FIR, queues and inference epochs.
 - USB IN16k16bitmono; USB OUT48k16bitstereo converted to32bit I2S into XVF3800 for playback and AEC reference. Async OUT explicit feedback uses actual I2S consumption plus bounded queue water level, not fixed nominal rate. Bounded independent capture/playback/wake paths. Stop/underflow/disconnect output zeros and discard historical audio. Playback volume/master mute before XMOS. No hi-fi claim.
 - HID Feature Report returns version, board state, buffers and error counters via existing endpoint0; provide on-demand diagnostic script. No CDC/extra endpoints.
-- Hi ESP remains development model, Hey Chat/Hello Chat incomplete. Short pause after wake remains required. Hardware absent; never conflate compile/tests with AEC/acoustic/device validation.
+- 你好小智 uses bundled wn9_nihaoxiaozhi_tts; on-device recognition remains pending. Short pause after wake remains required. First XIAO flash write verified but application USB enumeration unresolved; never conflate compile/tests with AEC/acoustic/device validation.
 
 ## I/O & Edge-Case Matrix
 | Scenario | Expected behavior |
@@ -87,3 +87,5 @@ Final root verification: full native suites, actual board/audio adapters, USB ta
 
 Focused follow-up review found no remaining capture-generation, independent mute/RX or first-feedback defects. One confirmed timing boundary is documented and modeled: before software detects a short clock interruption, DMA can transmit prefilled samples before its completion callback. Verdict: medium documentation/verification correction; no zero-tail claim for undetected clock gaps. Three48-frame DMA blocks and downstream DAC tail require hardware measurement; detected faults/USB stops clear queued and pending DMA data. This does not claim device acceptance.
 Run scripts/test.sh, scripts/test-usb.sh, scripts/test-descriptors.sh and all added native tests; scripts/build.sh; partition/image capacity validator; openspec validate migrate-respeaker-xvf3800 --strict. Record exact commands/results and SHA256 in docs/validation-status.md. Keep separate executable/evidence assertions and hardware assumptions.
+
+Current review follow-up: playback also waits for measured48k qualification, and clears stale data on loss/recovery. Separate internal-RAM USB Serial/JTAG maintenance firmware and staged acceptance are defined in docs/maintenance.md and docs/playback-aec-contract.md. Earlier build hashes below are historical; latest evidence is in docs/validation-status.md.

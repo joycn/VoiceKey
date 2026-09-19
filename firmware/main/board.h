@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "esp_err.h"
+#include "voicekey_xvf.h"
 #define VK_PIN_BUTTON 0
 #define VK_PIN_I2C_SDA 5
 #define VK_PIN_I2C_SCL 6
@@ -14,6 +15,13 @@ typedef struct {
     uint8_t version[3];
     uint64_t updated_ms;
     uint32_t errors, busy;
+    bool led_valid, led_fallback;
+    uint8_t led_settings[4]; /* effect, brightness, speed, gamma */
+    uint64_t led_updated_ms;
+    bool agc_valid;
+    uint32_t agc_gain_bits;
+    uint64_t agc_updated_ms;
+    vk_xvf_control_t control;
 } vk_board_status_t;
 esp_err_t vk_board_init(void);
 esp_err_t vk_board_xmos_init(void);

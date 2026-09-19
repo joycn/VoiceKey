@@ -59,9 +59,10 @@ void tud_task_ext(uint32_t timeout, bool isr) {
 }
 bool tud_hid_n_ready(uint8_t instance) { assert(!instance); return ready; }
 bool tud_hid_n_keyboard_report(uint8_t instance, uint8_t id, uint8_t modifier, const uint8_t keys[6]) {
-    assert(!instance && !id && !modifier);
+    assert(!instance && !id);
+    assert(modifier == (keys[0] ? 0x0e : 0));
     if (!accept) return false;
-    memset(report, 0, sizeof(report)); memcpy(report + 2, keys, 6); reports++; return true;
+    memset(report, 0, sizeof(report)); report[0] = modifier; memcpy(report + 2, keys, 6); reports++; return true;
 }
 uint16_t tud_audio_n_write(uint8_t id, const void *data, uint16_t len) {
     assert(!id && len <= sizeof(packet)); memcpy(packet, data, len); packet_len = len; return len;
@@ -130,18 +131,20 @@ static void check_audio_lifecycle(void) {
     tud_mount_cb(); assert(state.connected && !state.streaming && !state.host_mute);
 }
 static void check_hid_delivery(void) {
-    run_at(1000); assert(reports == 1 && !state.neutral_needed && report[2] == 0);
+    run_at(1000); assert(reports == 1 && !state.neutral_needed && report[2] == 0 && report[0] == 0);
     assert(vk_request_trigger(&state, 1100, state.wake_epoch));
     accept = false; run_at(1100);
     assert(reports == 1 && state.pending && !state.key_down);
     accept = true; run_at(1110);
-    assert(reports == 2 && state.key_down && report[2] == VK_KEY_F18);
+    assert(reports == 2 && state.key_down && report[2] == 0x16 && report[0] == 0x0e);
     uint8_t readback[8];
     assert(tud_hid_get_report_cb(0, 0, HID_REPORT_TYPE_INPUT, readback, 8) == 8);
     assert(!memcmp(readback, report, 8));
     run_at(1139); assert(reports == 2);
     accept = false; run_at(1140); assert(state.key_down);
-    accept = true; run_at(1141); assert(reports == 3 && !state.key_down && report[2] == 0);
+    accept = true; run_at(1141); assert(reports == 3 && !state.key_down && report[2] == 0 && report[0] == 0);
+    assert(tud_hid_get_report_cb(0, 0, HID_REPORT_TYPE_INPUT, readback, 8) == 8);
+    for (unsigned i=0; i<8; ++i) assert(readback[i] == 0);
     assert(vk_request_trigger(&state, 4000, state.wake_epoch));
     ready = false; run_at(4000); ready = true; run_at(4201);
     assert(reports == 3 && !state.pending); /* Expired events are never replayed. */

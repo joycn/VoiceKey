@@ -1,0 +1,411 @@
+[
+  {
+    "label": "绍兴路",
+    "source_sha256": "32e74f48743e8c9a6debb254b3e25e80187d2fd3f295c67a2cd3677016d58a4d",
+    "sample_rate": 48000,
+    "channels": 1,
+    "duration_seconds": 32.254666666666665,
+    "rms_dbfs": -24.942987730444965,
+    "peak_dbfs": 0.0,
+    "clipping_fraction": 0.0003384523169773883,
+    "window_100ms_rms_dbfs_quantiles": {
+      "0.1": -74.71969313710501,
+      "0.5": -57.48188241041228,
+      "0.9": -26.44196815639939,
+      "0.95": -17.482935250158285,
+      "0.99": -11.505428372691684
+    },
+    "half_second": [
+      {
+        "start_seconds": 0.0,
+        "rms_dbfs": -30.565548164007737,
+        "peak_dbfs": -20.11431969569228,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 0.5,
+        "rms_dbfs": -8.747863019484234,
+        "peak_dbfs": 0.0,
+        "clipping_fraction": 0.018166666666666668
+      },
+      {
+        "start_seconds": 1.0,
+        "rms_dbfs": -18.400054768701146,
+        "peak_dbfs": -5.431538298342118,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 1.5,
+        "rms_dbfs": -20.992619516712786,
+        "peak_dbfs": -7.251207199619014,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 2.0,
+        "rms_dbfs": -23.448777007288967,
+        "peak_dbfs": -11.950209499684854,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 2.5,
+        "rms_dbfs": -22.869859598326737,
+        "peak_dbfs": -8.662678082964591,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 3.0,
+        "rms_dbfs": -24.355634980242638,
+        "peak_dbfs": -8.4761375920641,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 3.5,
+        "rms_dbfs": -52.22684200906281,
+        "peak_dbfs": -34.728396871069314,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 4.0,
+        "rms_dbfs": -47.977812019274644,
+        "peak_dbfs": -31.797932130349494,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 4.5,
+        "rms_dbfs": -40.033096216096276,
+        "peak_dbfs": -18.43431766849248,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 5.0,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 5.5,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 6.0,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 6.5,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 7.0,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 7.5,
+        "rms_dbfs": -33.41403328841262,
+        "peak_dbfs": -5.918790915829461,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 8.0,
+        "rms_dbfs": -44.822054329384066,
+        "peak_dbfs": -30.825061961578555,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 8.5,
+        "rms_dbfs": -29.537927873446826,
+        "peak_dbfs": -13.361397750726665,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 9.0,
+        "rms_dbfs": -61.778283218636346,
+        "peak_dbfs": -49.025311182276646,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 9.5,
+        "rms_dbfs": -61.36790538884138,
+        "peak_dbfs": -47.84584442916924,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 10.0,
+        "rms_dbfs": -59.889578663791525,
+        "peak_dbfs": -49.538939471658466,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 10.5,
+        "rms_dbfs": -62.742418791410714,
+        "peak_dbfs": -48.92877318811551,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 11.0,
+        "rms_dbfs": -74.76502883564388,
+        "peak_dbfs": -61.95378078518941,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 11.5,
+        "rms_dbfs": -82.23453923833455,
+        "peak_dbfs": -64.62672741865377,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 12.0,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 12.5,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 13.0,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 13.5,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 14.0,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 14.5,
+        "rms_dbfs": -18.619545249501037,
+        "peak_dbfs": -5.177193818643528e-07,
+        "clipping_fraction": 8.333333333333333e-05
+      },
+      {
+        "start_seconds": 15.0,
+        "rms_dbfs": -70.67122002261007,
+        "peak_dbfs": -54.59455549272068,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 15.5,
+        "rms_dbfs": -53.038684529070004,
+        "peak_dbfs": -41.16507591811388,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 16.0,
+        "rms_dbfs": -51.6773227691634,
+        "peak_dbfs": -40.1655069502918,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 16.5,
+        "rms_dbfs": -53.238572734312655,
+        "peak_dbfs": -39.55160574014877,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 17.0,
+        "rms_dbfs": -53.103881054848316,
+        "peak_dbfs": -43.190208200147936,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 17.5,
+        "rms_dbfs": -54.65598531940496,
+        "peak_dbfs": -40.3431814540567,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 18.0,
+        "rms_dbfs": -68.90012610491075,
+        "peak_dbfs": -57.26562289727329,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 18.5,
+        "rms_dbfs": -69.75646779868852,
+        "peak_dbfs": -59.43222477420826,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 19.0,
+        "rms_dbfs": -18.886373870484952,
+        "peak_dbfs": -5.177193818643528e-07,
+        "clipping_fraction": 0.0020416666666666665
+      },
+      {
+        "start_seconds": 19.5,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 20.0,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 20.5,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 21.0,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 21.5,
+        "rms_dbfs": -20.88249793994145,
+        "peak_dbfs": 0.0,
+        "clipping_fraction": 0.0015416666666666667
+      },
+      {
+        "start_seconds": 22.0,
+        "rms_dbfs": -64.31745969790728,
+        "peak_dbfs": -26.406937423676627,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 22.5,
+        "rms_dbfs": -52.436475975531096,
+        "peak_dbfs": -38.445534147649155,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 23.0,
+        "rms_dbfs": -53.1737376903549,
+        "peak_dbfs": -42.1534989852949,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 23.5,
+        "rms_dbfs": -52.14394439816276,
+        "peak_dbfs": -41.63270091919965,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 24.0,
+        "rms_dbfs": -54.57348097207514,
+        "peak_dbfs": -45.32853419880749,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 24.5,
+        "rms_dbfs": -57.17204809513923,
+        "peak_dbfs": -42.95715804216477,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 25.0,
+        "rms_dbfs": -74.05507711778979,
+        "peak_dbfs": -63.19257654487685,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 25.5,
+        "rms_dbfs": -46.77093825267179,
+        "peak_dbfs": -16.576951401944548,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 26.0,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 26.5,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 27.0,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 27.5,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 28.0,
+        "rms_dbfs": -59.17114117419934,
+        "peak_dbfs": -21.117756680878138,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 28.5,
+        "rms_dbfs": -72.70610805083734,
+        "peak_dbfs": -61.263991794963204,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 29.0,
+        "rms_dbfs": -77.46686548334006,
+        "peak_dbfs": -60.0081443393292,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 29.5,
+        "rms_dbfs": -52.407113259493954,
+        "peak_dbfs": -40.504816487190226,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 30.0,
+        "rms_dbfs": -55.266337573734035,
+        "peak_dbfs": -43.355027745302614,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 30.5,
+        "rms_dbfs": -59.429275741833926,
+        "peak_dbfs": -47.647959601078604,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 31.0,
+        "rms_dbfs": -60.0341282505017,
+        "peak_dbfs": -49.027475667999326,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 31.5,
+        "rms_dbfs": -58.391410185430566,
+        "peak_dbfs": -44.56540476058352,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 32.0,
+        "rms_dbfs": -77.76571202499464,
+        "peak_dbfs": -66.55481040380418,
+        "clipping_fraction": 0.0
+      }
+    ]
+  }
+]

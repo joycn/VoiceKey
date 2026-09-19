@@ -9,6 +9,7 @@ void vk_runtime_audio_ok(bool ok);
 void vk_runtime_publish(const int16_t *samples, size_t count, uint32_t epoch);
 size_t vk_runtime_wake_read(int16_t *samples, size_t count, uint32_t *epoch);
 void vk_runtime_trigger(uint32_t epoch);
+void vk_runtime_wake_observed(uint32_t epoch, uint16_t peak, bool detected);
 void vk_runtime_ui(bool wake_ok);
 void vk_runtime_log(void);
 esp_err_t vk_runtime_usb_start(void);

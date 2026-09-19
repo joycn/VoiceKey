@@ -9,3 +9,10 @@
 - [ESP-SR](https://github.com/espressif/esp-sr)：固定2.2.0，保留真实WakeNet接口/clean与Hi ESP模型。目标词状态见wake-word-model.md。
 
 依赖与模型许可证见各managed component；USB VID/PID为开发值。历史Voice PE证据在`docs/history`和已标记superseded的旧OpenSpec，不能证明当前硬件有效。
+
+## 2026-09-18 配置核验补充
+
+- [固定版本命令表](https://github.com/respeaker/reSpeaker_XVF3800_USB_4MIC_ARRAY/blob/a652fe79da3a292b25decc0e1e7f267d29bb0284/python_control/xvf_host.py)：BLD_MSG(48,1)最多50字节；USB_BIT_DEPTH(48,8)在INT模式为(0,0)；OP_PACKED(35,13)、OP_UPSAMPLE(35,14)；AEC_AECCONVERGED(33,3)为int32，SHF_BYPASS(33,70)为uint8，AUDIO_MGR_REF_GAIN(35,1)为float。构建信息作为有界诊断元数据，不假定未经实机确认的名称。
+- [XMOS输出调谐说明](https://www.xmos.com/documentation/XM-014888-PC/html/modules/fwk_xvf/doc/user_guide/04_tuning_the_application.html)：内部处理后的16 kHz语音在48 kHz输出总线上需要上采样；不能把host loopback示例的上采样关闭设置用于处理后语音。
+- [XVF3800介绍](https://wiki.seeedstudio.com/respeaker_xvf3800_introduction/)：安装需关注进音孔一面和朝向。[XIAO GPIO说明](https://wiki.seeedstudio.com/respeaker_xvf3800_xiao_gpio/)用于X0D31功放低有效、X0D33灯电源与X0D30静音辨识；功放优化留待实测。
+- ReSpeaker Lite/XU316、XVF3000、Pi HAT及旧阵列资料只作产品差异参考，其固件、GPIO、驱动与AEC能力不作为本XVF3800+XIAO实现参数。

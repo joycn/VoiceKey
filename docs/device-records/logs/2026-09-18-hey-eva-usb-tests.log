@@ -1,0 +1,1 @@
+PASS: actual USB callbacks + core: controls, mute, stream/suspend/resume, HID transport failures and expiration

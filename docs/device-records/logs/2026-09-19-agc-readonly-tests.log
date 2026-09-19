@@ -1,0 +1,13 @@
+PASS: 10 core test groups, including 50,000 randomized FIFO operations
+FIR actual float coefficients: passband ripple 0.000744 dB; stopband attenuation 86.472 dB (5 Hz grid)
+PASS: FIR chunk/reset/saturation/response, XVF status/busy/short/timeout/stale, playback lifecycle and clock drift
+PASS: actual runtime cache/epoch/new-wake gates, DMA mute independence, stop/restart/disconnect clearing and diagnostic identity
+PASS: actual audio task/callback overflow admission, partial/timeout reads, RX epochs/recovery/FIR reset and TX-before-RX clock recovery without stale replay
+PASS: actual board task coherent cache publication, persistent LED failure and LED reapplication after control reconfiguration
+PASS: production wake task skips clean, recreates only used epoch state, retries failed recreation without stale inference
+PASS: real validators under PYTHONOPTIMIZE=0/1: cache/header/capacity, partition MD5/types/subtypes/flags/duplicates/integrity and XMOS wrong hash/size
+PASS: build wrapper rejects path/config overrides before IDF and stops requested flash on validation failure; all IDF calls mocked
+PASS: schema3 diagnostics192/193bytes, init error/pending/readiness, PSRAM/heap, identity and malformed report rejection
+PASS: wake extension distinguishes absent/stale data and reports inference/detection/HID counters
+PASS: shared open ordering, no exclusive fallback, cleanup and ambiguous device rejection
+PASS: read-only gain extension and stale/legacy absence

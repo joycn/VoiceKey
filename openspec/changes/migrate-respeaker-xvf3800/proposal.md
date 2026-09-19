@@ -1,6 +1,6 @@
 ## Why
 
-Replace the obsolete Voice PE target with reSpeaker XVF3800 USB 4-Mic Array + standard XIAO ESP32S3. A single XIAO USB connection must provide microphone, ChatGPT playback and F18 without resident Mac software. Default active speakers connect to reSpeaker3.5mm, so the playback path supplies the XMOS AEC reference.
+Replace the obsolete Voice PE target with reSpeaker XVF3800 USB 4-Mic Array + standard XIAO ESP32S3. A single XIAO USB connection must provide microphone, ChatGPT playback and Shift+Option+Command+S without resident Mac software. Default active speakers connect to reSpeaker3.5mm, so the playback path supplies the XMOS AEC reference.
 
 ## What Changes
 
@@ -24,4 +24,4 @@ None. Prior Voice PE change was unarchived; this change replaces its current-tar
 
 ## Impact
 
-Changes firmware/main, voicekey_core/voicekey_usb, tests, scripts, README, BrainStorm and docs. No hardware writes, automatic XMOS flashing, additional USB endpoints for diagnostics, CDC, resident Mac agent, OTA or network audio. Hi ESP remains development-only; no claim of verified AEC/high fidelity or device acceptance.
+Changes firmware/main, voicekey_core/voicekey_usb, tests, scripts, README, BrainStorm and docs. Hardware writes are explicit maintenance operations after image validation and device identification. No automatic XMOS flashing, additional production USB diagnostic endpoints, production CDC, resident Mac agent, OTA or network audio. A separate USB Serial/JTAG maintenance image isolates startup failures. 你好小智 uses bundled wn9_nihaoxiaozhi_tts; no claim of verified AEC/high fidelity or device acceptance.

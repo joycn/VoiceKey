@@ -1,0 +1,84 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x9 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40377b46
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x173c
+load:0x403c8700,len:0xe80
+load:0x403cb700,len:0x31cc
+entry 0x403c8948
+I (24) boot: ESP-IDF v5.5.2 2nd stage bootloader
+I (24) boot: compile time Sep 18 2026 22:01:53
+I (25) boot: Multicore bootloader
+I (25) boot: chip revision: v0.2
+I (25) boot: efuse block revision: v1.4
+I (25) qio_mode: Enabling default flash chip QIO
+I (25) boot.esp32s3: Boot SPI Speed : 80MHz
+I (26) boot.esp32s3: SPI Mode       : QIO
+I (26) boot.esp32s3: SPI Flash Size : 8MB
+I (26) boot: Enabling RNG early entropy source...
+I (26) boot: Partition Table:
+I (26) boot: ## Label            Usage          Type ST Offset   Length
+I (27) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (27) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (27) boot:  2 factory          factory app      00 00 00010000 00400000
+I (28) boot:  3 model            Unknown data     01 82 00410000 00300000
+I (28) boot: End of partition table
+I (29) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0ae40h ( 44608) map
+I (36) esp_image: segment 1: paddr=0001ae68 vaddr=3fc92800 size=029c0h ( 10688) load
+I (38) esp_image: segment 2: paddr=0001d830 vaddr=40374000 size=027e8h ( 10216) load
+I (40) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=15594h ( 87444) map
+I (54) esp_image: segment 4: paddr=000355bc vaddr=403767e8 size=0bf1ch ( 48924) load
+I (63) esp_image: segment 5: paddr=000414e0 vaddr=50000000 size=00020h (    32) load
+I (69) boot: Loaded app from partition at offset 0x10000
+I (70) boot: Disabling RNG early entropy source...
+I (70) cpu_start: Multicore app
+I (79) cpu_start: Pro cpu start user code
+I (79) cpu_start: cpu freq: 160000000 Hz
+I (79) app_init: Application information:
+I (79) app_init: Project name:     voicekey_diagnostic
+I (80) app_init: App version:      9b18a6c-dirty
+I (80) app_init: Compile time:     Sep 18 2026 22:01:12
+I (80) app_init: ELF file SHA256:  b44d73578...
+I (80) app_init: ESP-IDF:          v5.5.2
+I (80) efuse_init: Min chip rev:     v0.0
+I (80) efuse_init: Max chip rev:     v0.99 
+I (81) efuse_init: Chip rev:         v0.2
+I (81) heap_init: Initializing. RAM available for dynamic allocation:
+I (81) heap_init: At 3FC95A98 len 00053C78 (335 KiB): RAM
+I (81) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM
+I (81) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+I (82) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM
+I (83) spi_flash: detected chip: gd
+I (83) spi_flash: flash io: qio
+I (83) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+I (83) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+I (84) main_task: Started on CPU0
+I (94) main_task: Calling app_main()
+
+VoiceKey MAINTENANCE: reset=11 cores=2 revision=2 flash=8388608 (ESP_OK) heap=387956; PSRAM intentionally disabled
+VERSION: status=0 01 00 04
+BLD_MSG: status=0 69 6e 74 64 65 76 2d 6c 72 31 36 2d 73 71 72 2d 69 32 63 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+USB_BIT_DEPTH: status=0 00 00
+GPO_READ_VALUES: status=0 00 00 00 01 00
+I2S_INACTIVE: status=0 01
+OP_L: status=0 08 00
+OP_PACKED: status=0 00 00
+OP_UPSAMPLE: status=0 00 00
+AEC_CONVERGED: status=0 00 00 00 00
+SHF_BYPASS: status=0 00
+REF_GAIN: status=0 00 00 00 41
+
+VoiceKey MAINTENANCE: reset=11 cores=2 revision=2 flash=8388608 (ESP_OK) heap=387956; PSRAM intentionally disabled
+VERSION: status=0 01 00 04
+BLD_MSG: status=0 69 6e 74 64 65 76 2d 6c 72 31 36 2d 73 71 72 2d 69 32 63 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+USB_BIT_DEPTH: status=0 00 00
+GPO_READ_VALUES: status=0 00 00 00 01 00
+I2S_INACTIVE: status=0 01
+OP_L: status=0 08 00
+OP_PACKED: status=0 00 00
+OP_UPSAMPLE: status=0 00 00
+AEC_CONVERGED: status=0 00 00 00 00
+SHF_BYPASS: status=0 00
+REF_GAIN: status=0 00 00 00 41

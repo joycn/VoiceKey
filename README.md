@@ -1,8 +1,8 @@
 # VoiceKey
 
-reSpeaker XVF3800 USB 4-Mic Array + **标准 XIAO ESP32S3** 固件原型。唯一日常连接是 XIAO 的 USB-C：同时提供麦克风、ChatGPT 播放和 F18 键盘。默认使用接在 reSpeaker 3.5 mm 接口上的有源音箱；无需常驻 Mac 软件。
+reSpeaker XVF3800 USB 4-Mic Array + **标准 XIAO ESP32S3** 固件原型。唯一日常连接是 XIAO 的 USB-C：同时提供麦克风、ChatGPT 播放和 Shift+Option+Command+S 键盘。默认使用接在 reSpeaker 3.5 mm 接口上的有源音箱；无需常驻 Mac 软件。
 
-开发唤醒词为 **Hi ESP**。**Hey Chat / Hello Chat 尚未完成**。用户说完唤醒词后仍需短暂停顿；蓝灯仅表示检测成功，不表示 ChatGPT 已开始收音。无硬件，编译和测试不能证明 AEC、声学或设备验收通过。
+目标唤醒词为 **你好小智**，已选择内置 `wn9_nihaoxiaozhi_tts` 模型，触发 **⇧⌥⌘S**。尚未烧录及验证识别效果；说完唤醒词后仍需短暂停顿。静音/低音量问题见 BUG-001，仍待修复。
 
 产品设计见 [BrainStorm.md](BrainStorm.md)，迁移计划见 [OpenSpec](openspec/changes/migrate-respeaker-xvf3800/proposal.md)，结果见 [验证记录](docs/validation-status.md)。
 
@@ -22,4 +22,16 @@ openspec validate migrate-respeaker-xvf3800 --strict
 - 8 MB Flash / 8 MB Octal PSRAM；4 MB 应用、3 MB 模型，无 OTA、CDC、UART0 控制台或旧板 LED GPIO。
 - [一次性 HID 诊断](docs/build.md)使用现有端点 0；XMOS USB 仅用于单独的维护/恢复，不自动刷写。
 
-Mac 需保持唤醒且已解锁，ChatGPT 已登录并后台运行；事先配置输入、输出、权限和 F18。详见[实机清单](docs/hardware-validation.md)。
+Mac 需保持唤醒且已解锁，ChatGPT 已登录并后台运行；事先配置输入、输出、权限和 Shift+Option+Command+S。详见[实机清单](docs/hardware-validation.md)。
+
+## 官方资料复核后的运行检查
+
+启动时核对 XMOS 1.0.8、INT 模式和音频格式，并在至少250 ms的实测窗口确认48 kHz速率后才开放采集、新唤醒和播放。输出上采样显式开启；故障恢复丢弃旧音频。一次性诊断脚本现使用192字节schema3，包含构建字符串、格式、实测速率和缓存的AEC状态，须与新固件配套使用。
+
+安装时让带Seeed标志、具有麦克风进音孔的一面朝向声源，外壳不得遮挡进音孔。默认仍使用3.5 mm有源音箱；功放关闭及conference/ASR通道对比须按[实机验收](docs/hardware-validation.md)测试后决定。软件通过情况和新产物哈希见[验证记录](docs/validation-status.md)。
+
+USB 未枚举时使用独立的[启动维护诊断](docs/maintenance.md)；播放和 AEC 按[路径验收契约](docs/playback-aec-contract.md)逐项验证。
+
+## 已知问题
+
+[BUG-001：Mute恢复异常及录音幅度过低](docs/bugs/BUG-001-mute-recovery-low-input.md) 已记录并推迟修复。当前代码按首次报告问题时的行为基线恢复；后续调参与诊断实验不在当前实现中。硬件上的固件不会随代码回退而改变。

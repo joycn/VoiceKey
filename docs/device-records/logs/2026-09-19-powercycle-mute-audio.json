@@ -1,0 +1,87 @@
+[
+  {
+    "label": "绍兴路 3",
+    "source_sha256": "c6eb4e65757a36b7916770b59b94764018fae8aa62a152bcb9721e433e4538e9",
+    "sample_rate": 48000,
+    "channels": 1,
+    "duration_seconds": 5.438666666666666,
+    "rms_dbfs": -24.48126939202662,
+    "peak_dbfs": 0.0,
+    "clipping_fraction": 0.001608850208384408,
+    "window_100ms_rms_dbfs_quantiles": {
+      "0.1": -78.75998064797948,
+      "0.5": -59.42322598448024,
+      "0.9": -42.747489020688725,
+      "0.95": -39.471791866128456,
+      "0.99": -27.41333740343765
+    },
+    "half_second": [
+      {
+        "start_seconds": 0.0,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 0.5,
+        "rms_dbfs": null,
+        "peak_dbfs": null,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 1.0,
+        "rms_dbfs": -14.192004985336059,
+        "peak_dbfs": 0.0,
+        "clipping_fraction": 0.0175
+      },
+      {
+        "start_seconds": 1.5,
+        "rms_dbfs": -48.035792358991756,
+        "peak_dbfs": -37.06412258056143,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 2.0,
+        "rms_dbfs": -34.22218574276571,
+        "peak_dbfs": -17.63070210306445,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 2.5,
+        "rms_dbfs": -35.591629405867046,
+        "peak_dbfs": -21.690969345280156,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 3.0,
+        "rms_dbfs": -59.1708692056981,
+        "peak_dbfs": -46.03103275316748,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 3.5,
+        "rms_dbfs": -62.16921153394257,
+        "peak_dbfs": -52.382400527040794,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 4.0,
+        "rms_dbfs": -65.6988814032297,
+        "peak_dbfs": -51.26856725843904,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 4.5,
+        "rms_dbfs": -77.42752405372039,
+        "peak_dbfs": -63.01914335633657,
+        "clipping_fraction": 0.0
+      },
+      {
+        "start_seconds": 5.0,
+        "rms_dbfs": -75.77449966979758,
+        "peak_dbfs": -66.1346025726935,
+        "clipping_fraction": 0.0
+      }
+    ]
+  }
+]

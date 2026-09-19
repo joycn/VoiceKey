@@ -25,9 +25,11 @@ static void usb_task(void *arg) {
             uint64_t now = esp_timer_get_time() / 1000;
             vk_hid_action_t a = hooks.hid_next(now);
             uint8_t keys[6] = {0};
-            if (a == VK_HID_PRESS) keys[0] = VK_KEY_F18;
-            if (a != VK_HID_NONE && tud_hid_keyboard_report(0, 0, keys)) {
+            uint8_t modifiers = 0;
+            if (a == VK_HID_PRESS) { keys[0] = VK_TRIGGER_KEY; modifiers = VK_TRIGGER_MODIFIERS; }
+            if (a != VK_HID_NONE && tud_hid_keyboard_report(0, modifiers, keys)) {
                 memset(last_report, 0, sizeof(last_report));
+                last_report[0] = modifiers;
                 memcpy(last_report + 2, keys, sizeof(keys));
                 hooks.hid_commit(a, now);
             }

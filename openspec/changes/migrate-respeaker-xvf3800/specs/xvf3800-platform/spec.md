@@ -15,3 +15,11 @@ The firmware SHALL use I2C SDA5/SCL6/address0x2C,VERSION(48,0), left processed a
 #### Scenario: Fault and recovery
 - **WHEN** a control read fails, returns malformed status or becomes stale
 - **THEN** capture and new wake close, old inference is invalidated, and recovery begins with fresh samples while playback remains independent.
+
+### Requirement: Verify operational audio profile
+
+The firmware SHALL query bounded build metadata and INT-mode USB bit depths, explicitly configure/read back unpacked upsampled output, and periodically verify the capture format. Runtime capture and new wake SHALL wait for measured48k consumption qualification; incompatible version/mode/format or clock loss SHALL close admission and clear old capture state. Metadata SHALL NOT be presented as proof of the running image SHA256.
+
+#### Scenario: Wrong profile or changed format
+- **WHEN** an otherwise responding XMOS reports UA mode, an unexpected output format or an out-of-range measured sample rate
+- **THEN** capture and new wake remain closed and diagnostic reports identify the incompatibility.

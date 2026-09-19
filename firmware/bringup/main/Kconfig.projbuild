@@ -1,0 +1,16 @@
+menu "VoiceKey"
+config VOICEKEY_PCM_GAIN
+    int "PCM integer gain (saturating)"
+    range 1 8
+    default 1
+config VOICEKEY_COOLDOWN_MS
+    int "Wake/button trigger cooldown (ms)"
+    range 500 10000
+    default 2000
+config VOICEKEY_USB_VID
+    hex "USB VID (0xCAFE is development only)"
+    default 0xCAFE
+config VOICEKEY_USB_PID
+    hex "USB PID (development only)"
+    default 0x4014
+endmenu

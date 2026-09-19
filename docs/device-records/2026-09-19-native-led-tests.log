@@ -1,0 +1,4 @@
+PASS: actual runtime cache/epoch/new-wake gates, DMA mute independence, stop/restart/disconnect clearing and diagnostic identity
+PASS: actual audio task/callback overflow admission, partial/timeout reads, RX epochs/recovery/FIR reset and TX-before-RX clock recovery without stale replay
+PASS: actual board task coherent cache publication, persistent LED failure and LED reapplication after control reconfiguration
+PASS: production wake task skips clean, recreates only used epoch state, retries failed recreation without stale inference

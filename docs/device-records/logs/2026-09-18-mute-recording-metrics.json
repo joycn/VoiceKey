@@ -1,0 +1,123 @@
+{
+  "duration_s": 10.622666666666667,
+  "sample_rate": 48000,
+  "peak_dbfs": -41.43,
+  "rms_dbfs": -67.41,
+  "clipped_samples": 0,
+  "zero_pct": 19.029277017698004,
+  "half_seconds": [
+    {
+      "start_s": 0.0,
+      "rms_dbfs": -57.19,
+      "peak_dbfs": -41.43
+    },
+    {
+      "start_s": 0.5,
+      "rms_dbfs": -65.69,
+      "peak_dbfs": -55.19
+    },
+    {
+      "start_s": 1.0,
+      "rms_dbfs": -74.3,
+      "peak_dbfs": -62.01
+    },
+    {
+      "start_s": 1.5,
+      "rms_dbfs": -81.17,
+      "peak_dbfs": -64.29
+    },
+    {
+      "start_s": 2.0,
+      "rms_dbfs": -84.32,
+      "peak_dbfs": -71.22
+    },
+    {
+      "start_s": 2.5,
+      "rms_dbfs": -85.93,
+      "peak_dbfs": -73.41
+    },
+    {
+      "start_s": 3.0,
+      "rms_dbfs": -71.18,
+      "peak_dbfs": -55.35
+    },
+    {
+      "start_s": 3.5,
+      "rms_dbfs": -72.43,
+      "peak_dbfs": -60.21
+    },
+    {
+      "start_s": 4.0,
+      "rms_dbfs": -77.85,
+      "peak_dbfs": -63.86
+    },
+    {
+      "start_s": 4.5,
+      "rms_dbfs": -74.02,
+      "peak_dbfs": -62.7
+    },
+    {
+      "start_s": 5.0,
+      "rms_dbfs": -75.69,
+      "peak_dbfs": -62.35
+    },
+    {
+      "start_s": 5.5,
+      "rms_dbfs": -75.75,
+      "peak_dbfs": -63.07
+    },
+    {
+      "start_s": 6.0,
+      "rms_dbfs": -86.66,
+      "peak_dbfs": -71.22
+    },
+    {
+      "start_s": 6.5,
+      "rms_dbfs": -87.1,
+      "peak_dbfs": -73.41
+    },
+    {
+      "start_s": 7.0,
+      "rms_dbfs": -73.18,
+      "peak_dbfs": -57.24
+    },
+    {
+      "start_s": 7.5,
+      "rms_dbfs": -68.46,
+      "peak_dbfs": -56.16
+    },
+    {
+      "start_s": 8.0,
+      "rms_dbfs": -66.71,
+      "peak_dbfs": -51.52
+    },
+    {
+      "start_s": 8.5,
+      "rms_dbfs": -70.58,
+      "peak_dbfs": -55.66
+    },
+    {
+      "start_s": 9.0,
+      "rms_dbfs": -69.88,
+      "peak_dbfs": -55.66
+    },
+    {
+      "start_s": 9.5,
+      "rms_dbfs": -62.1,
+      "peak_dbfs": -49.4
+    },
+    {
+      "start_s": 10.0,
+      "rms_dbfs": -68.05,
+      "peak_dbfs": -54.6
+    },
+    {
+      "start_s": 10.5,
+      "rms_dbfs": -73.86,
+      "peak_dbfs": -59.68
+    }
+  ],
+  "longest_exact_zero_s": 0.009958333333333333,
+  "longest_exact_zero_start_s": 6.912520833333334,
+  "source_sha256": "9674d26ddf59abc22014460d6777a2fc5f1d3caa31022e5818b4f47f844129bb"
+}

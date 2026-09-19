@@ -1,0 +1,23 @@
+{
+  "component": "espressif/esp-sr",
+  "version": "2.2.0",
+  "model": "wn9_hijoy_tts",
+  "wake_word": "Hi,Joy",
+  "files": [
+    {
+      "path": "_MODEL_INFO_",
+      "bytes": 38,
+      "sha256": "2bc021ade56df1be648923d4a17eae3bab219d87fbfa6e7c3bd02ec620bb2443"
+    },
+    {
+      "path": "wn9_data",
+      "bytes": 289638,
+      "sha256": "ad7dbe072d350534fc0d1cbc53b6e61185f392f49d0f29d953d1671b376b8a6e"
+    },
+    {
+      "path": "wn9_index",
+      "bytes": 1200,
+      "sha256": "b463a5051d01bddc1f5723cddc8f3d5f11a6c750106694ca4aa0c8fdc235032c"
+    }
+  ]
+}

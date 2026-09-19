@@ -1,0 +1,103 @@
+{
+  "duration_s": 17.065333333333335,
+  "peak": 15831,
+  "peak_dbfs": -6.32,
+  "rms_dbfs": -27.79,
+  "zero_pct": 0.945874677709196,
+  "clipped_samples": 0,
+  "seconds": [
+    {
+      "second": 0.0,
+      "rms_dbfs": -55.57,
+      "peak_dbfs": -41.37
+    },
+    {
+      "second": 1.0,
+      "rms_dbfs": -48.65,
+      "peak_dbfs": -35.61
+    },
+    {
+      "second": 2.0,
+      "rms_dbfs": -54.47,
+      "peak_dbfs": -38.12
+    },
+    {
+      "second": 3.0,
+      "rms_dbfs": -48.68,
+      "peak_dbfs": -33.39
+    },
+    {
+      "second": 4.0,
+      "rms_dbfs": -43.7,
+      "peak_dbfs": -28.99
+    },
+    {
+      "second": 5.0,
+      "rms_dbfs": -42.15,
+      "peak_dbfs": -23.44
+    },
+    {
+      "second": 6.0,
+      "rms_dbfs": -37.53,
+      "peak_dbfs": -24.67
+    },
+    {
+      "second": 7.0,
+      "rms_dbfs": -36.44,
+      "peak_dbfs": -23.72
+    },
+    {
+      "second": 8.0,
+      "rms_dbfs": -35.44,
+      "peak_dbfs": -21.53
+    },
+    {
+      "second": 9.0,
+      "rms_dbfs": -30.23,
+      "peak_dbfs": -14.47
+    },
+    {
+      "second": 10.0,
+      "rms_dbfs": -29.43,
+      "peak_dbfs": -14.75
+    },
+    {
+      "second": 11.0,
+      "rms_dbfs": -33.87,
+      "peak_dbfs": -17.36
+    },
+    {
+      "second": 12.0,
+      "rms_dbfs": -17.64,
+      "peak_dbfs": -6.32
+    },
+    {
+      "second": 13.0,
+      "rms_dbfs": -23.87,
+      "peak_dbfs": -7.87
+    },
+    {
+      "second": 14.0,
+      "rms_dbfs": -27.32,
+      "peak_dbfs": -12.56
+    },
+    {
+      "second": 15.0,
+      "rms_dbfs": -27.4,
+      "peak_dbfs": -12.53
+    },
+    {
+      "second": 16.0,
+      "rms_dbfs": -42.69,
+      "peak_dbfs": -29.6
+    },
+    {
+      "second": 17.0,
+      "rms_dbfs": -43.06,
+      "peak_dbfs": -32.5
+    }
+  ],
+  "source_sha256": "9477ca39f43e4582ff83df20d18c884fa61fbf0d5c88f8581e3556de26a0a3dd",
+  "method": "macOS afconvert AAC decode to 48k mono signed16 PCM; sample peak and unweighted RMS; no normalization",
+  "limitations": "AAC and application processing prevent bit-exact USB loss/valid-bit analysis; total RMS includes pauses. No speech transcription or listening-based quality claim."
+}

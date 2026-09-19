@@ -1,0 +1,31 @@
+Audio:
+
+    Devices:
+
+        VoiceKey XVF3800 Audio:
+
+          Default Input Device: Yes
+          Input Channels: 1
+          Manufacturer: VoiceKey Prototype
+          Current SampleRate: 16000
+          Transport: USB
+          Input Source: Default
+
+        VoiceKey XVF3800 Audio:
+
+          Manufacturer: VoiceKey Prototype
+          Output Channels: 2
+          Current SampleRate: 48000
+          Transport: USB
+          Output Source: Default
+
+        Mac mini Speakers:
+
+          Default Output Device: Yes
+          Default System Output Device: Yes
+          Manufacturer: Apple Inc.
+          Output Channels: 2
+          Current SampleRate: 48000
+          Transport: Built-in
+          Output Source: Mac mini Speakers
+

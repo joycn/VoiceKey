@@ -8,8 +8,9 @@
 #define VK_WAKE_CAPACITY 4096u
 #define VK_HID_HOLD_MS 30u
 #define VK_TRIGGER_TTL_MS 200u
-#define VK_LED_MS 500u
-#define VK_KEY_F18 0x6du
+#define VK_LED_MS 5000u
+#define VK_TRIGGER_KEY 0x16u /* USB HID S */
+#define VK_TRIGGER_MODIFIERS 0x0eu /* left Shift | Alt (Option) | GUI (Command) */
 
 typedef struct {
     int16_t *data;

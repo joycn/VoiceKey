@@ -1,0 +1,392 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x9 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40377fce
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x173c
+load:0x403c8700,len:0xe80
+load:0x403cb700,len:0x31cc
+entry 0x403c8948
+I (24) boot: ESP-IDF v5.5.2 2nd stage bootloader
+I (24) boot: compile time Sep 18 2026 22:34:15
+I (25) boot: Multicore bootloader
+I (25) boot: chip revision: v0.2
+I (25) boot: efuse block revision: v1.4
+I (25) qio_mode: Enabling default flash chip QIO
+I (25) boot.esp32s3: Boot SPI Speed : 80MHz
+I (26) boot.esp32s3: SPI Mode       : QIO
+I (26) boot.esp32s3: SPI Flash Size : 8MB
+I (26) boot: Enabling RNG early entropy source...
+I (26) boot: Partition Table:
+I (26) boot: ## Label            Usage          Type ST Offset   Length
+I (27) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (27) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (27) boot:  2 factory          factory app      00 00 00010000 00400000
+I (28) boot:  3 model            Unknown data     01 82 00410000 00300000
+I (28) boot: End of partition table
+I (29) esp_image: segment 0: paddr=00010020 vaddr=3c050020 size=0e464h ( 58468) map
+I (38) esp_image: segment 1: paddr=0001e48c vaddr=3fc94500 size=01b8ch (  7052) load
+I (39) esp_image: segment 2: paddr=00020020 vaddr=42000020 size=4109ch (266396) map
+I (79) esp_image: segment 3: paddr=000610c4 vaddr=3fc9608c size=02b40h ( 11072) load
+I (82) esp_image: segment 4: paddr=00063c0c vaddr=40374000 size=104c4h ( 66756) load
+I (95) esp_image: segment 5: paddr=000740d8 vaddr=50000000 size=00020h (    32) load
+I (102) boot: Loaded app from partition at offset 0x10000
+I (102) boot: Disabling RNG early entropy source...
+I (103) octal_psram: vendor id    : 0x0d (AP)
+I (103) octal_psram: dev id       : 0x02 (generation 3)
+I (103) octal_psram: density      : 0x03 (64 Mbit)
+I (103) octal_psram: good-die     : 0x01 (Pass)
+I (104) octal_psram: Latency      : 0x01 (Fixed)
+I (104) octal_psram: VCC          : 0x01 (3V)
+I (104) octal_psram: SRF          : 0x01 (Fast Refresh)
+I (104) octal_psram: BurstType    : 0x01 (Hybrid Wrap)
+I (104) octal_psram: BurstLen     : 0x01 (32 Byte)
+I (105) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)
+I (105) octal_psram: DriveStrength: 0x00 (1/1)
+I (105) MSPI Timing: Enter psram timing tuning
+I (106) esp_psram: Found 8MB PSRAM device
+I (106) esp_psram: Speed: 80MHz
+I (106) cpu_start: Multicore app
+I (539) esp_psram: SPI SRAM memory test OK
+I (548) cpu_start: Pro cpu start user code
+I (548) cpu_start: cpu freq: 240000000 Hz
+I (548) app_init: Application information:
+I (548) app_init: Project name:     voicekey_bringup
+I (548) app_init: App version:      9b18a6c-dirty
+I (548) app_init: Compile time:     Sep 18 2026 22:33:30
+I (549) app_init: ELF file SHA256:  315437109...
+I (549) app_init: ESP-IDF:          v5.5.2
+I (549) efuse_init: Min chip rev:     v0.0
+I (549) efuse_init: Max chip rev:     v0.99 
+I (549) efuse_init: Chip rev:         v0.2
+I (549) heap_init: Initializing. RAM available for dynamic allocation:
+I (550) heap_init: At 3FC9D340 len 0004C3D0 (304 KiB): RAM
+I (550) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM
+I (550) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+I (550) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM
+I (550) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator
+I (551) spi_flash: detected chip: gd
+I (551) spi_flash: flash io: qio
+I (551) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+I (552) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+I (552) main_task: Started on CPU0
+I (553) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations
+I (553) main_task: Calling app_main()
+BRINGUP app_main / PSRAM boot: ESP_OK heap=8711764 psram=8388608
+BRINGUP runtime: ESP_OK heap=8711764 psram=8388608
+BRINGUP board: ESP_OK heap=8711764 psram=8388608
+BRINGUP XMOS control task: ESP_OK heap=8706012 psram=8388608
+BRINGUP I2S start: ESP_OK heap=8695616 psram=8388608
+E (5605) i2c.master: I2C bus is still busy but software timeout detected
+BRINGUP before WakeNet: ESP_OK heap=8695616 psram=8388608
+I (7557) MODEL_LOADER: The storage free size is 24192 KB
+I (7557) MODEL_LOADER: The partition size is 3072 KB
+I (7557) MODEL_LOADER: Successfully load srmodels
+MC Quantized wakenet9: wakeNet9_v1h24_Hi,ESP_3_0.63_0.635, tigger:v4, mode:0, p:0, (Oct 17 2025 17:48:44)
+I (7621) wake: model=wn9_hiesp word=Hi,ESP samples=512 (Hey Chat is NOT bundled)
+Guru Meditation Error: Core  1 panic'ed (LoadProhibited). Exception was unhandled.
+
+Core  1 register dump:
+PC      : 0x420173ab  PS      : 0x00060030  A0      : 0x82012cb4  A1      : 0x3fcb0860  
+A2      : 0x0000000c  A3      : 0x3fced608  A4      : 0x00000200  A5      : 0x3fcb08a0  
+A6      : 0x3fc964f4  A7      : 0x0000abab  A8      : 0x00000000  A9      : 0x3fcb0840  
+A10     : 0x3fcac4e0  A11     : 0x0000000c  A12     : 0x00060020  A13     : 0x00000001  
+A14     : 0x00000200  A15     : 0x3fc9a370  SAR     : 0x0000000a  EXCCAUSE: 0x0000001c  
+EXCVADDR: 0x00000010  LBEG    : 0x420382c4  LEND    : 0x420382c9  LCOUNT  : 0xffffffff  
+
+
+Backtrace: 0x420173a8:0x3fcb0860 0x42012cb1:0x3fcb0880 0x4200ac5f:0x3fcb08a0 0x4037ba35:0x3fcb08d0
+
+
+
+
+ELF file SHA256: 315437109
+
+Rebooting...
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x9 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4200b163
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x173c
+load:0x403c8700,len:0xe80
+load:0x403cb700,len:0x31cc
+entry 0x403c8948
+I (24) boot: ESP-IDF v5.5.2 2nd stage bootloader
+I (24) boot: compile time Sep 18 2026 22:34:15
+I (24) boot: Multicore bootloader
+I (24) boot: chip revision: v0.2
+I (24) boot: efuse block revision: v1.4
+I (25) qio_mode: Enabling default flash chip QIO
+I (25) boot.esp32s3: Boot SPI Speed : 80MHz
+I (25) boot.esp32s3: SPI Mode       : QIO
+I (25) boot.esp32s3: SPI Flash Size : 8MB
+I (26) boot: Enabling RNG early entropy source...
+I (26) boot: Partition Table:
+I (26) boot: ## Label            Usage          Type ST Offset   Length
+I (26) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (27) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (27) boot:  2 factory          factory app      00 00 00010000 00400000
+I (27) boot:  3 model            Unknown data     01 82 00410000 00300000
+I (28) boot: End of partition table
+I (28) esp_image: segment 0: paddr=00010020 vaddr=3c050020 size=0e464h ( 58468) map
+I (37) esp_image: segment 1: paddr=0001e48c vaddr=3fc94500 size=01b8ch (  7052) load
+I (39) esp_image: segment 2: paddr=00020020 vaddr=42000020 size=4109ch (266396) map
+I (79) esp_image: segment 3: paddr=000610c4 vaddr=3fc9608c size=02b40h ( 11072) load
+I (82) esp_image: segment 4: paddr=00063c0c vaddr=40374000 size=104c4h ( 66756) load
+I (95) esp_image: segment 5: paddr=000740d8 vaddr=50000000 size=00020h (    32) load
+I (102) boot: Loaded app from partition at offset 0x10000
+I (102) boot: Disabling RNG early entropy source...
+I (103) octal_psram: vendor id    : 0x0d (AP)
+I (103) octal_psram: dev id       : 0x02 (generation 3)
+I (103) octal_psram: density      : 0x03 (64 Mbit)
+I (103) octal_psram: good-die     : 0x01 (Pass)
+I (104) octal_psram: Latency      : 0x01 (Fixed)
+I (104) octal_psram: VCC          : 0x01 (3V)
+I (104) octal_psram: SRF          : 0x01 (Fast Refresh)
+I (104) octal_psram: BurstType    : 0x01 (Hybrid Wrap)
+I (104) octal_psram: BurstLen     : 0x01 (32 Byte)
+I (105) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)
+I (105) octal_psram: DriveStrength: 0x00 (1/1)
+I (105) MSPI Timing: Enter psram timing tuning
+I (106) esp_psram: Found 8MB PSRAM device
+I (106) esp_psram: Speed: 80MHz
+I (106) cpu_start: Multicore app
+I (539) esp_psram: SPI SRAM memory test OK
+I (548) cpu_start: Pro cpu start user code
+I (548) cpu_start: cpu freq: 240000000 Hz
+I (548) app_init: Application information:
+I (548) app_init: Project name:     voicekey_bringup
+I (548) app_init: App version:      9b18a6c-dirty
+I (548) app_init: Compile time:     Sep 18 2026 22:33:30
+I (549) app_init: ELF file SHA256:  315437109...
+I (549) app_init: ESP-IDF:          v5.5.2
+I (549) efuse_init: Min chip rev:     v0.0
+I (549) efuse_init: Max chip rev:     v0.99 
+I (549) efuse_init: Chip rev:         v0.2
+I (549) heap_init: Initializing. RAM available for dynamic allocation:
+I (550) heap_init: At 3FC9D340 len 0004C3D0 (304 KiB): RAM
+I (550) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM
+I (550) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+I (550) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM
+I (550) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator
+I (551) spi_flash: detected chip: gd
+I (551) spi_flash: flash io: qio
+I (551) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+I (552) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+I (552) main_task: Started on CPU0
+I (553) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations
+I (553) main_task: Calling app_main()
+BRINGUP app_main / PSRAM boot: ESP_OK heap=8711764 psram=8388608
+BRINGUP runtime: ESP_OK heap=8711764 psram=8388608
+BRINGUP board: ESP_OK heap=8711764 psram=8388608
+BRINGUP XMOS control task: ESP_OK heap=8706012 psram=8388608
+BRINGUP I2S start: ESP_OK heap=8695616 psram=8388608
+BRINGUP before WakeNet: ESP_OK heap=8695616 psram=8388608
+I (7557) MODEL_LOADER: The storage free size is 24192 KB
+I (7557) MODEL_LOADER: The partition size is 3072 KB
+I (7558) MODEL_LOADER: Successfully load srmodels
+MC Quantized wakenet9: wakeNet9_v1h24_Hi,ESP_3_0.63_0.635, tigger:v4, mode:0, p:0, (Oct 17 2025 17:48:44)
+I (7621) wake: model=wn9_hiesp word=Hi,ESP samples=512 (Hey Chat is NOT bundled)
+Guru Meditation Error: Core  1 panic'ed (LoadProhibited). Exception was unhandled.
+
+Core  1 register dump:
+PC      : 0x420173ab  PS      : 0x00060030  A0      : 0x82012cb4  A1      : 0x3fcb0860  
+A2      : 0x0000000c  A3      : 0x3fced608  A4      : 0x00000200  A5      : 0x3fcb08a0  
+A6      : 0x3fc964f4  A7      : 0x0000abab  A8      : 0x00000000  A9      : 0x3fcb0840  
+A10     : 0x3fcac4e0  A11     : 0x0000000c  A12     : 0x00060020  A13     : 0x00000001  
+A14     : 0x00000200  A15     : 0x3fc9a370  SAR     : 0x0000000a  EXCCAUSE: 0x0000001c  
+EXCVADDR: 0x00000010  LBEG    : 0x420382c4  LEND    : 0x420382c9  LCOUNT  : 0xffffffff  
+
+
+Backtrace: 0x420173a8:0x3fcb0860 0x42012cb1:0x3fcb0880 0x4200ac5f:0x3fcb08a0 0x4037ba35:0x3fcb08d0
+
+
+
+
+ELF file SHA256: 315437109
+
+Rebooting...
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x9 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4200b14c
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x173c
+load:0x403c8700,len:0xe80
+load:0x403cb700,len:0x31cc
+entry 0x403c8948
+I (24) boot: ESP-IDF v5.5.2 2nd stage bootloader
+I (24) boot: compile time Sep 18 2026 22:34:15
+I (24) boot: Multicore bootloader
+I (24) boot: chip revision: v0.2
+I (24) boot: efuse block revision: v1.4
+I (25) qio_mode: Enabling default flash chip QIO
+I (25) boot.esp32s3: Boot SPI Speed : 80MHz
+I (25) boot.esp32s3: SPI Mode       : QIO
+I (25) boot.esp32s3: SPI Flash Size : 8MB
+I (26) boot: Enabling RNG early entropy source...
+I (26) boot: Partition Table:
+I (26) boot: ## Label            Usage          Type ST Offset   Length
+I (26) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (27) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (27) boot:  2 factory          factory app      00 00 00010000 00400000
+I (28) boot:  3 model            Unknown data     01 82 00410000 00300000
+I (28) boot: End of partition table
+I (28) esp_image: segment 0: paddr=00010020 vaddr=3c050020 size=0e464h ( 58468) map
+I (38) esp_image: segment 1: paddr=0001e48c vaddr=3fc94500 size=01b8ch (  7052) load
+I (39) esp_image: segment 2: paddr=00020020 vaddr=42000020 size=4109ch (266396) map
+I (79) esp_image: segment 3: paddr=000610c4 vaddr=3fc9608c size=02b40h ( 11072) load
+I (82) esp_image: segment 4: paddr=00063c0c vaddr=40374000 size=104c4h ( 66756) load
+I (95) esp_image: segment 5: paddr=000740d8 vaddr=50000000 size=00020h (    32) load
+I (102) boot: Loaded app from partition at offset 0x10000
+I (102) boot: Disabling RNG early entropy source...
+I (103) octal_psram: vendor id    : 0x0d (AP)
+I (103) octal_psram: dev id       : 0x02 (generation 3)
+I (103) octal_psram: density      : 0x03 (64 Mbit)
+I (104) octal_psram: good-die     : 0x01 (Pass)
+I (104) octal_psram: Latency      : 0x01 (Fixed)
+I (104) octal_psram: VCC          : 0x01 (3V)
+I (104) octal_psram: SRF          : 0x01 (Fast Refresh)
+I (104) octal_psram: BurstType    : 0x01 (Hybrid Wrap)
+I (105) octal_psram: BurstLen     : 0x01 (32 Byte)
+I (105) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)
+I (105) octal_psram: DriveStrength: 0x00 (1/1)
+I (105) MSPI Timing: Enter psram timing tuning
+I (106) esp_psram: Found 8MB PSRAM device
+I (106) esp_psram: Speed: 80MHz
+I (107) cpu_start: Multicore app
+I (539) esp_psram: SPI SRAM memory test OK
+I (548) cpu_start: Pro cpu start user code
+I (548) cpu_start: cpu freq: 240000000 Hz
+I (548) app_init: Application information:
+I (548) app_init: Project name:     voicekey_bringup
+I (549) app_init: App version:      9b18a6c-dirty
+I (549) app_init: Compile time:     Sep 18 2026 22:33:30
+I (549) app_init: ELF file SHA256:  315437109...
+I (549) app_init: ESP-IDF:          v5.5.2
+I (549) efuse_init: Min chip rev:     v0.0
+I (549) efuse_init: Max chip rev:     v0.99 
+I (549) efuse_init: Chip rev:         v0.2
+I (550) heap_init: Initializing. RAM available for dynamic allocation:
+I (550) heap_init: At 3FC9D340 len 0004C3D0 (304 KiB): RAM
+I (550) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM
+I (550) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+I (550) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM
+I (551) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator
+I (551) spi_flash: detected chip: gd
+I (551) spi_flash: flash io: qio
+I (552) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+I (552) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+I (553) main_task: Started on CPU0
+I (554) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations
+I (554) main_task: Calling app_main()
+BRINGUP app_main / PSRAM boot: ESP_OK heap=8711764 psram=8388608
+BRINGUP runtime: ESP_OK heap=8711764 psram=8388608
+BRINGUP board: ESP_OK heap=8711764 psram=8388608
+BRINGUP XMOS control task: ESP_OK heap=8706012 psram=8388608
+BRINGUP I2S start: ESP_OK heap=8695616 psram=8388608
+BRINGUP before WakeNet: ESP_OK heap=8695616 psram=8388608
+I (7558) MODEL_LOADER: The storage free size is 24192 KB
+I (7558) MODEL_LOADER: The partition size is 3072 KB
+I (7559) MODEL_LOADER: Successfully load srmodels
+MC Quantized wakenet9: wakeNet9_v1h24_Hi,ESP_3_0.63_0.635, tigger:v4, mode:0, p:0, (Oct 17 2025 17:48:44)
+I (7622) wake: model=wn9_hiesp word=Hi,ESP samples=512 (Hey Chat is NOT bundled)
+Guru Meditation Error: Core  1 panic'ed (LoadProhibited). Exception was unhandled.
+
+Core  1 register dump:
+PC      : 0x420173ab  PS      : 0x00060030  A0      : 0x82012cb4  A1      : 0x3fcb0860  
+A2      : 0x0000000c  A3      : 0x3fced608  A4      : 0x00000200  A5      : 0x3fcb08a0  
+A6      : 0x3fc964f4  A7      : 0x0000abab  A8      : 0x00000000  A9      : 0x3fcb0840  
+A10     : 0x3fcac4e0  A11     : 0x0000000c  A12     : 0x00060020  A13     : 0x00000001  
+A14     : 0x00000200  A15     : 0x3fc9a370  SAR     : 0x0000000a  EXCCAUSE: 0x0000001c  
+EXCVADDR: 0x00000010  LBEG    : 0x420382c4  LEND    : 0x420382c9  LCOUNT  : 0xffffffff  
+
+
+Backtrace: 0x420173a8:0x3fcb0860 0x42012cb1:0x3fcb0880 0x4200ac5f:0x3fcb08a0 0x4037ba35:0x3fcb08d0
+
+
+
+
+ELF file SHA256: 315437109
+
+Rebooting...
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x9 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4200b14c
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x173c
+load:0x403c8700,len:0xe80
+load:0x403cb700,len:0x31cc
+entry 0x403c8948
+I (24) boot: ESP-IDF v5.5.2 2nd stage bootloader
+I (24) boot: compile time Sep 18 2026 22:34:15
+I (24) boot: Multicore bootloader
+I (24) boot: chip revision: v0.2
+I (24) boot: efuse block revision: v1.4
+I (25) qio_mode: Enabling default flash chip QIO
+I (25) boot.esp32s3: Boot SPI Speed : 80MHz
+I (25) boot.esp32s3: SPI Mode       : QIO
+I (25) boot.esp32s3: SPI Flash Size : 8MB
+I (26) boot: Enabling RNG early entropy source...
+I (26) boot: Partition Table:
+I (26) boot: ## Label            Usage          Type ST Offset   Length
+I (26) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (27) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (27) boot:  2 factory          factory app      00 00 00010000 00400000
+I (27) boot:  3 model            Unknown data     01 82 00410000 00300000
+I (28) boot: End of partition table
+I (28) esp_image: segment 0: paddr=00010020 vaddr=3c050020 size=0e464h ( 58468) map
+I (37) esp_image: segment 1: paddr=0001e48c vaddr=3fc94500 size=01b8ch (  7052) load
+I (39) esp_image: segment 2: paddr=00020020 vaddr=42000020 size=4109ch (266396) map
+I (79) esp_image: segment 3: paddr=000610c4 vaddr=3fc9608c size=02b40h ( 11072) load
+I (81) esp_image: segment 4: paddr=00063c0c vaddr=40374000 size=104c4h ( 66756) load
+I (94) esp_image: segment 5: paddr=000740d8 vaddr=50000000 size=00020h (    32) load
+I (102) boot: Loaded app from partition at offset 0x10000
+I (102) boot: Disabling RNG early entropy source...
+I (103) octal_psram: vendor id    : 0x0d (AP)
+I (103) octal_psram: dev id       : 0x02 (generation 3)
+I (103) octal_psram: density      : 0x03 (64 Mbit)
+I (103) octal_psram: good-die     : 0x01 (Pass)
+I (103) octal_psram: Latency      : 0x01 (Fixed)
+I (104) octal_psram: VCC          : 0x01 (3V)
+I (104) octal_psram: SRF          : 0x01 (Fast Refresh)
+I (104) octal_psram: BurstType    : 0x01 (Hybrid Wrap)
+I (104) octal_psram: BurstLen     : 0x01 (32 Byte)
+I (105) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)
+I (105) octal_psram: DriveStrength: 0x00 (1/1)
+I (105) MSPI Timing: Enter psram timing tuning
+I (106) esp_psram: Found 8MB PSRAM device
+I (106) esp_psram: Speed: 80MHz
+I (106) cpu_start: Multicore app
+I (539) esp_psram: SPI SRAM memory test OK
+I (548) cpu_start: Pro cpu start user code
+I (548) cpu_start: cpu freq: 240000000 Hz
+I (548) app_init: Application information:
+I (548) app_init: Project name:     voicekey_bringup
+I (548) app_init: App version:      9b18a6c-dirty
+I (548) app_init: Compile time:     Sep 18 2026 22:33:30
+I (548) app_init: ELF file SHA256:  315437109...
+I (549) app_init: ESP-IDF:          v5.5.2
+I (549) efuse_init: Min chip rev:     v0.0
+I (549) efuse_init: Max chip rev:     v0.99 
+I (549) efuse_init: Chip rev:         v0.2
+I (549) heap_init: Initializing. RAM available for dynamic allocation:
+I (550) heap_init: At 3FC9D340 len 0004C3D0 (304 KiB): RAM
+I (550) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM
+I (550) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+I (550) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM
+I (550) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator
+I (551) spi_flash: detected chip: gd
+I (551) spi_flash: flash io: qio
+I (551) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+I (552) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+I (552) main_task: Started on CPU0
+I (553) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations
+I (553) main_task: Calling app_main()
+BRINGUP app_main / PSRAM boot: ESP_OK heap=8711764 psram=8388608

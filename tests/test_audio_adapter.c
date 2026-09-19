@@ -14,6 +14,7 @@ static bool mic_muted, clock_fault_next_poll;
 static int32_t buffers[3][96];
 static unsigned dma_index;
 static int16_t host[288];
+static int16_t pre_mute_pcm[48];
 static void dma_tick(void) {
     clock_us += 1000;
     i2s_event_data_t e = {.dma_buf=buffers[dma_index++%3],.size=sizeof(buffers[0])};
@@ -48,7 +49,10 @@ esp_err_t i2s_channel_read(i2s_chan_handle_t h,void *data,size_t requested,size_
     assert(h==rx && requested==1152 && timeout==20);
     unsigned step=read_step++;
     if(step==1) assert(state.audio_ok && state.wake.count==0 && rx_disables>=2);
-    if(step==2) assert(state.wake.count==48);
+    if(step==2) {
+        assert(state.wake.count==48);
+        for(unsigned i=0;i<48;i++)pre_mute_pcm[i]=state.wake.data[(state.wake.head+i)%state.wake.capacity];
+    }
     if(step==3) assert(!state.audio_ok && state.wake.count==0);
     if(step==4) assert(state.audio_ok && state.wake.count==0);
     if(step==5) assert(state.wake.count==48);
@@ -74,6 +78,7 @@ esp_err_t i2s_channel_read(i2s_chan_handle_t h,void *data,size_t requested,size_
         for(unsigned i=0;i<48;i++)assert(state.wake.data[(state.wake.head+i)%state.wake.capacity]==expected[i]);
         longjmp(finished,1);
     }
+    if(step==11) for(unsigned i=0;i<251;i++)dma_tick(); /* clock requalification during recovery read */
     hooks.playback_packet(host,144);
     for(unsigned i=0;i<3;i++)dma_tick(); /* TX stays healthy through RX-only errors. */
     *bytes=requested;
@@ -89,9 +94,18 @@ esp_err_t i2s_channel_read(i2s_chan_handle_t h,void *data,size_t requested,size_
     if(step==10)clock_fault_next_poll=true;
     if(step==16) {
         assert(state.wake.count==48);
+        /* Identical incoming PCM must have identical amplitude after mute.
+           Exercise the real capture task and runtime, including epoch/FIR reset. */
+        bool nonzero=false;
+        for(unsigned i=0;i<48;i++) {
+            assert(state.wake.data[(state.wake.head+i)%state.wake.capacity]==pre_mute_pcm[i]);
+            if(pre_mute_pcm[i])nonzero=true;
+        }
+        assert(nonzero);
         clock_us+=6000;vk_runtime_inputs();assert(!state.audio_ok && !playback.active && !playback.count);
         hooks.playback_packet(host,144);assert(!playback.count);
-        dma_tick();assert(!playback.active);dma_tick();assert(playback.active && !playback.count);
+        dma_tick();assert(!playback.active);dma_tick();assert(!playback.active && !playback.count);
+        for(unsigned i=0;i<250;i++)dma_tick();
         /* This fault happened DURING the registered read, so generation rejects it. */
     }
     if(step==5)*bytes=7; /* malformed partial frame */
@@ -104,7 +118,9 @@ int main(void) {
     for(unsigned i=0;i<288;i++)host[i]=100;
     vk_runtime_init();assert(vk_runtime_usb_start()==ESP_OK);hooks.connected(true);hooks.streaming(true);
     assert(vk_audio_start()==ESP_OK && capture_task && tx_cb.on_sent && rx_cb.on_recv_q_ovf);
-    hooks.playback_active(true);dma_tick();dma_tick();assert(playback.active);
+    hooks.playback_active(true);dma_tick();dma_tick();assert(!playback.active);
+    for(unsigned i=0;i<250;i++)dma_tick();
+    assert(capture_clock_ok);
     if(!setjmp(finished))capture_task(NULL);
     hooks.playback_packet(host,144);dma_tick();assert(playback.count>0);
     clock_us+=6000;vk_runtime_inputs();assert(!transport_ready && !playback.active && !playback.count && !state.audio_ok);
@@ -112,7 +128,9 @@ int main(void) {
     hooks.playback_packet(host,144);assert(playback.count==0);
     dma_tick();assert(!transport_ready && !playback.active); /* TX restarts BEFORE paused RX task */
     hooks.playback_packet(host,144);assert(!playback.count);
-    dma_tick();assert(transport_ready && playback.active && !playback.count && !state.audio_ok);
+    dma_tick();assert(transport_ready && !playback.active && !playback.count && !state.audio_ok);
+    for(unsigned i=0;i<251;i++)dma_tick();
+    assert(playback.active && !playback.count);
     for(unsigned i=0;i<3;i++)for(unsigned j=0;j<96;j++)assert(buffers[i][j]==0);
     for(unsigned i=0;i<288;i++)host[i]=200;
     hooks.playback_packet(host,144);dma_tick();assert(buffers[(dma_index-1)%3][0]==200*65536);

@@ -9,3 +9,10 @@ __pycache__/
 
 # Generated local BMad workflow renders
 _bmad/render/
+firmware/diagnostic/build/
+firmware/diagnostic/sdkconfig
+firmware/diagnostic/sdkconfig.old
+firmware/bringup/build/
+firmware/bringup/sdkconfig
+firmware/bringup/sdkconfig.old
+firmware/bringup/dependencies.lock

@@ -2,14 +2,14 @@ schema: spec-driven
 context: |
   VoiceKey exclusively targets reSpeaker XVF3800 USB 4-Mic Array plus standard XIAO ESP32S3.
   ESP-IDF5.5.2, TinyUSB0.18.0~6, ESP-SR2.2.0; 8MB Flash and 8MB Octal PSRAM.
-  One XIAO USB cable carries UAC2 microphone16k mono, speaker48k stereo, and F18 HID.
+  One XIAO USB cable carries UAC2 microphone16k mono, speaker48k stereo, and Shift+Option+Command+S HID.
   Default active speakers use reSpeaker3.5mm. USB OUT is both playback and XMOS AEC reference.
   XVF3800 master / XIAO slave, continuous48k32bitstereo duplex; left beam(6,3), FIR decimate3.
   Physical X0D30 mute never stops playback. Control failure or age>100ms closes capture and new wake.
   XMOS firmware is pinned1.0.8; separate XMOS USB is maintenance/recovery only, never auto-flash.
   BrainStorm.md is the current product design. The Voice PE change is retained only as superseded history.
   The Mac is awake/unlocked and ChatGPT logged in/background; a short pause after wake remains required.
-  Hi ESP is development only; Hey Chat/Hello Chat are incomplete. No hardware is currently available.
+  你好小智 uses bundled wn9_nihaoxiaozhi_tts from ESP-SR2.2.0; model packaging is verified, on-device recognition remains pending. BUG-001 is deferred; no claim of acoustic acceptance.
 rules:
   tasks:
     - Do not mark target-word or physical-device/AEC/acoustic acceptance complete without corresponding evidence.

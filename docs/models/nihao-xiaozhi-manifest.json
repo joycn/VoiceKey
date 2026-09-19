@@ -1,0 +1,23 @@
+{
+  "component": "espressif/esp-sr",
+  "version": "2.2.0",
+  "model": "wn9_nihaoxiaozhi_tts",
+  "wake_word": "你好小智",
+  "files": [
+    {
+      "path": "_MODEL_INFO_",
+      "bytes": 44,
+      "sha256": "058c04f027862ab745c056b8c8d896396b1cf871e0a8098537610f1a0e16a108"
+    },
+    {
+      "path": "wn9_data",
+      "bytes": 289638,
+      "sha256": "3bd2998013971a5999ca024745bf282381ce93c1ac79468a674abfe3d91399d8"
+    },
+    {
+      "path": "wn9_index",
+      "bytes": 1200,
+      "sha256": "b463a5051d01bddc1f5723cddc8f3d5f11a6c750106694ca4aa0c8fdc235032c"
+    }
+  ]
+}
