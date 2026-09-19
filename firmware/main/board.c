@@ -65,14 +65,17 @@ static void control(void *arg) {
             uint8_t effect = rgb==0x202020 ? 1 : rgb==0x000020 ? 2 : rgb ? 3 : 0;
             uint32_t color_rgb = effect==1 ? 0xffffff : rgb;
             uint8_t color[] = {color_rgb, color_rgb>>8, color_rgb>>16, 0};
-            uint8_t brightness=30, speed=1, gamma=0;
-            /* Apply effect first and brightness last, as in Seeed's example.
+            uint8_t brightness=effect==1 ? 255 : 30, speed=1, gamma=0;
+            /* White follows Seeed's RGB example (white instead of orange):
+               effect, color, speed 1, brightness 255; no gamma override.
+               Other states retain their previous brightness/gamma settings.
+               Apply effect first and brightness last, as in Seeed's example.
                Mute/effect changes can replace XMOS LED settings: initialization
                alone cannot keep the requested brightness after a transition. */
             if (vk_xvf_set(&protocol,20,12,&effect,1) &&
                 vk_xvf_set(&protocol,20,16,color,4) &&
                 vk_xvf_set(&protocol,20,15,&speed,1) &&
-                vk_xvf_set(&protocol,20,14,&gamma,1) &&
+                (effect==1 || vk_xvf_set(&protocol,20,14,&gamma,1)) &&
                 vk_xvf_set(&protocol,20,13,&brightness,1)) {
                 last_led=rgb;
             } else {
@@ -94,8 +97,8 @@ static void control(void *arg) {
                        a healthy animation on every poll. Retry only after a
                        complete, successful, low-frequency snapshot. */
                     uint8_t expected_effect=rgb==0x202020 ? 1 : rgb==0x000020 ? 2 : rgb ? 3 : 0;
-                    if (led_pending[0]!=expected_effect || led_pending[1]!=30 ||
-                        led_pending[2]!=1 || led_pending[3]!=0) last_led=UINT32_MAX;
+                    if (led_pending[0]!=expected_effect || led_pending[1]!=(expected_effect==1 ? 255 : 30) ||
+                        led_pending[2]!=1 || (expected_effect!=1 && led_pending[3]!=0)) last_led=UINT32_MAX;
                 }
             } else { next.led_valid=false; led_step=0; }
         } else if (next.valid && rgb==last_led && led_now-agc_query_ms>=1000) {

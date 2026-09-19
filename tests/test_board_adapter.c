@@ -21,12 +21,12 @@ void vk_runtime_inputs(void) {
     if(cycle==0 || cycle==4 || cycle==7)assert(effect==2);
     if(cycle==6)assert(effect==1 && color[0]==255 && color[1]==255 && color[2]==255);
     if(cycle==8 || cycle==9)assert(effect==3);
-    if(cycle>=4 && cycle<71)assert(brightness==30 && led_gamma==0);
+    if(cycle>=4 && cycle<71)assert(brightness==(effect==1 ? 255 : 30) && led_gamma==0);
     if(cycle==0 || cycle==4 || cycle==7)assert(speed==1);
     if(cycle==6 || cycle==10 || cycle==11)assert(speed==1);
     if(cycle==8 || cycle==9)assert(speed==1);
 
-    if(cycle>=230)assert(s.led_valid && s.led_settings[0]==1 && s.led_settings[1]==30 && s.led_settings[2]==1 && s.led_settings[3]==0 && s.control.led_power);
+    if(cycle>=230)assert(s.led_valid && s.led_settings[0]==1 && s.led_settings[1]==255 && s.led_settings[2]==1 && s.led_settings[3]==1 && s.control.led_power);
     if(cycle>=50 && cycle<95)assert(s.agc_valid && s.agc_gain_bits==0x3d000000);
     if(cycle>=95 && cycle<145)assert(!s.agc_valid);
     if(cycle>=145)assert(s.agc_valid && s.agc_gain_bits==0x3d000000);
@@ -101,7 +101,7 @@ int main(void) {
     assert(versions==2 && led_writes[0]==5 && led_writes[1]==0 && led_writes[2]==1 && led_writes[3]==1 && led_writes[4]==5 && led_writes[5]==0);
     unsigned recovered_writes=0;
     for(unsigned i=71;i<240;i++)recovered_writes+=led_writes[i];
-    assert(recovered_writes==5); /* One restoration, no periodic animation restart. */
+    assert(recovered_writes==4); /* One restoration, no periodic animation restart. */
     assert(forced_busy==2 && settling_delays>2 && cache.busy==2 && retry_delays==2);
     puts("PASS: actual board task coherent cache publication, persistent LED failure and LED reapplication after control reconfiguration");
 }
