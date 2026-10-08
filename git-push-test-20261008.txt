@@ -1,0 +1,8 @@
+Authenticated Git push workflow test
+Date: 2026-10-08
+Repository: joycn/VoiceKey
+Branch: dot/test-git-push-20261008
+
+This plain-text file records a user-authorized Git workflow test:
+create a branch from main, add this file, commit it, and push the branch.
+It is documentation only and does not change application behavior.
