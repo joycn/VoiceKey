@@ -99,6 +99,13 @@ static void playback_test(void) {
 }
 static bool physical_mute, inactive_state, bad_version, fail_control, ua_mode, bad_format, bad_build, fail_aec;
 static unsigned aec_reads;
+static const struct { uint8_t r,c; uint32_t bits; } baseline[]={
+ {35,0,0x42b40000},{35,1,0x41000000},{35,26,12},{17,30,0x44a28000},
+ {17,11,0x42800000},{33,36,0x3f800000},{17,13,0x40000000}};
+static int fail_baseline=-1, mismatch_baseline=-1, fail_baseline_read=-1;
+static bool short_baseline_read;
+static uint32_t adapted_gain=0x3d000000; /* AGC has adapted below 1. */
+
 static bool fail_bypass, unconverged;
 static unsigned version_reads, gpo_reads, writes;
 static uint64_t simulated_ms;
@@ -110,6 +117,20 @@ static int controller_transport(void *ctx, const uint8_t *tx, size_t nt, uint8_t
     if(timed_transport) { simulated_ms+=15; if(nr)timed_reads++; }
     if (fail_control) return -1;
     uint8_t r = tx[0], c = tx[1] & 127;
+    for(unsigned i=0;i<sizeof(baseline)/sizeof(baseline[0]);i++) {
+        if(r!=baseline[i].r || c!=baseline[i].c) continue;
+        if(!nr) {
+            writes++; assert(nt==7 && tx[2]==4);
+            for(unsigned k=0;k<4;k++)assert(tx[3+k]==(uint8_t)(baseline[i].bits>>(8*k)));
+            return fail_baseline==(int)i ? -1 : 0;
+        }
+        assert(nr==5); memset(rx,0,nr);
+        if(fail_baseline_read==(int)i)return short_baseline_read?4:-1;
+        uint32_t value=i==6?adapted_gain:baseline[i].bits;
+        if(mismatch_baseline==(int)i)value^=1;
+        for(unsigned k=0;k<4;k++)rx[1+k]=(uint8_t)(value>>(8*k));
+        return nr;
+    }
     if (!nr) {
         writes++;
         /* Strict allowlist excludes every GPIO/unmute write. */
@@ -134,17 +155,17 @@ static int controller_transport(void *ctx, const uint8_t *tx, size_t nt, uint8_t
 static void controller_test(void) {
     vk_xvf_t x = {.transfer=controller_transport}; vk_xvf_control_t s = {0};
     vk_xvf_poll(&x,&s,100); assert(s.valid && !s.muted && !vk_xvf_capture_closed(&s,200));
-    assert(version_reads==1 && writes==4 && gpo_reads==1);
+    assert(version_reads==1 && writes==11 && gpo_reads==1);
     assert(vk_xvf_capture_closed(&s,201));
     physical_mute=true; vk_xvf_poll(&x,&s,220); assert(s.valid && s.muted && vk_xvf_capture_closed(&s,220));
     physical_mute=false; inactive_state=true; vk_xvf_poll(&x,&s,240); assert(!s.i2s_active && vk_xvf_capture_closed(&s,240));
     inactive_state=false; fail_control=true; vk_xvf_poll(&x,&s,260); assert(!s.valid && !s.configured && vk_xvf_capture_closed(&s,260));
     fail_control=false; bad_version=true; vk_xvf_poll(&x,&s,280); assert(!s.valid && vk_xvf_capture_closed(&s,280));
     bad_version=false; vk_xvf_poll(&x,&s,300); assert(s.valid && !vk_xvf_capture_closed(&s,300));
-    assert(writes==8); /* initial + successful recovery */
-    assert(s.aec_valid && s.aec_converged==1 && s.ref_gain_bits==0x3f800000);
+    assert(writes==22); /* initial + successful recovery */
+    assert(s.aec_valid && s.aec_converged==1 && s.ref_gain_bits==0x41000000);
     unsigned snapshots=aec_reads;
-    vk_xvf_poll(&x,&s,500); assert(aec_reads==snapshots);
+    vk_xvf_poll(&x,&s,500); assert(aec_reads==snapshots && writes==22);
     bad_format=true;
     for(unsigned t=800;t<=1160 && s.valid;t+=120) vk_xvf_poll(&x,&s,t); assert(!s.valid && s.error==VK_XVF_FORMAT);
     bad_format=false; ua_mode=true; vk_xvf_poll(&x,&s,820); assert(!s.valid && s.error==VK_XVF_PROFILE);
@@ -156,6 +177,52 @@ static void controller_test(void) {
     assert(!vk_xvf_read(&x,48,1,metadata,51)); assert(before==calls);
 }
 
+static void baseline_fault_test(void) {
+    vk_xvf_t x={.transfer=controller_transport};
+    for(int i=0;i<7;i++) {
+        vk_xvf_control_t s={0}; fail_baseline=i;
+        vk_xvf_poll(&x,&s,100); assert(!s.valid && !s.configured && x.errors);
+    }
+    fail_baseline=-1;
+    /* Exercise each baseline read, including the live AGC seed read, with
+       a transport failure and a successful-status but truncated response.
+       Retry the same controller state to prove failed partial configuration
+       cannot open capture and is reapplied completely on recovery. */
+    for(unsigned short_read=0;short_read<2;short_read++) {
+        short_baseline_read=short_read!=0;
+        for(int i=0;i<7;i++) {
+            vk_xvf_control_t s={0};
+            unsigned errors_before=x.errors;
+            fail_baseline_read=i;
+            vk_xvf_poll(&x,&s,100);
+            assert(!s.valid && !s.configured && s.muted && !s.aec_valid);
+            assert(vk_xvf_capture_closed(&s,100) && s.error==VK_XVF_IO);
+            assert(x.errors>errors_before);
+            fail_baseline_read=-1;
+            unsigned writes_before=writes;
+            vk_xvf_poll(&x,&s,120);
+            assert(s.valid && s.configured && !s.muted && s.aec_valid);
+            assert(!vk_xvf_capture_closed(&s,120) && s.error==VK_XVF_OK);
+            assert(writes==writes_before+11);
+            vk_xvf_poll(&x,&s,140);
+            assert(s.valid && writes==writes_before+11);
+        }
+    }
+    for(int i=0;i<6;i++) {
+        vk_xvf_control_t s={0}; mismatch_baseline=i;
+        vk_xvf_poll(&x,&s,100); assert(!s.valid && !s.configured);
+    }
+    mismatch_baseline=-1;
+    const uint32_t invalid[]={0x7fc00000,0x7f800000,0xbf800000,0x42820000};
+    for(unsigned i=0;i<4;i++) {
+        vk_xvf_control_t s={0}; adapted_gain=invalid[i];
+        vk_xvf_poll(&x,&s,100); assert(!s.valid && !s.configured);
+    }
+    adapted_gain=0x3d000000;
+    vk_xvf_control_t s={0}; vk_xvf_poll(&x,&s,100); assert(s.valid);
+    unsigned before=writes;
+    vk_xvf_poll(&x,&s,120); assert(s.valid && writes==before);
+}
 static void staggered_control_test(void) {
     timed_transport=true; simulated_ms=10000;
     vk_xvf_t x={.transfer=controller_transport,.clock_ms=transport_clock};
@@ -172,7 +239,7 @@ static void staggered_control_test(void) {
         assert(simulated_ms-s.updated_ms==30);
         assert(vk_xvf_fresh(s.valid,s.updated_ms,simulated_ms));
     }
-    assert(s.aec_ms>initial_aec && s.aec_converged==1 && s.ref_gain_bits==0x3f800000);
+    assert(s.aec_ms>initial_aec && s.aec_converged==1 && s.ref_gain_bits==0x41000000);
     /* Partial AEC data must not replace a complete published snapshot. */
     while(s.aec_step) { simulated_ms+=20; vk_xvf_poll(&x,&s,simulated_ms); }
     simulated_ms+=1000; unconverged=true;
@@ -190,4 +257,4 @@ static void staggered_control_test(void) {
     timed_transport=false;
 }
 
-int main(void) { fir_test(); protocol_test(); controller_test(); staggered_control_test(); playback_test(); puts("PASS: FIR chunk/reset/saturation/response, XVF status/busy/short/timeout/stale, playback lifecycle and clock drift"); }
+int main(void) { fir_test(); protocol_test(); controller_test(); baseline_fault_test(); staggered_control_test(); playback_test(); puts("PASS: FIR chunk/reset/saturation/response, XVF status/busy/short/timeout/stale, playback lifecycle and clock drift"); }

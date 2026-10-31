@@ -82,7 +82,12 @@ esp_err_t i2c_master_receive(i2c_master_dev_handle_t d,uint8_t *bytes,size_t n,i
     else if(r==35 && c==14){bytes[1]=1;bytes[2]=1;}
     else if(r==33 && c==3){bytes[1]=1;assert(n==5);}
     else if(r==33 && c==70)assert(n==2);
-    else if(r==35 && c==1){bytes[3]=0x80;bytes[4]=0x3f;}
+    else if((r==35 && (c==0 || c==1 || c==26)) || (r==17 && (c==11 || c==30)) || (r==33 && c==36)) {
+        assert(n==5);
+        uint32_t v=r==35 ? (c==0?0x42b40000:c==1?0x41000000:12) :
+                   r==17 ? (c==11?0x42800000:0x44a28000) : 0x3f800000;
+        for(unsigned i=0;i<4;i++)bytes[1+i]=(uint8_t)(v>>(8*i));
+    }
     else if(r==35 && c==15){bytes[1]=6;bytes[2]=3;}
     else if(r==20 && c==16)memcpy(bytes+1,color,4);
     else if(r==20 && c==13)bytes[1]=brightness;

@@ -31,6 +31,38 @@ bool vk_xvf_fresh(bool valid, uint64_t updated, uint64_t now) {
 static uint32_t le32(const uint8_t *b) {
     return (uint32_t)b[0] | (uint32_t)b[1]<<8 | (uint32_t)b[2]<<16 | (uint32_t)b[3]<<24;
 }
+static void encode32(uint8_t *b, uint32_t value) {
+    for (unsigned i=0;i<4;i++) b[i]=(uint8_t)(value>>(8*i));
+}
+static bool acoustic_baseline(vk_xvf_t *x) {
+    /* Seeed host_control README tuning baseline; IEEE754 float32 except
+       SYS_DELAY (signed int32 reference samples). Apply only at configuration,
+       never periodically reset the adaptive gain or persist to XMOS flash. */
+    static const struct { uint8_t resource, command; uint32_t bits; } values[]={
+        {35,0,0x42b40000}, /* MIC_GAIN 90 */
+        {35,1,0x41000000}, /* REF_GAIN 8 */
+        {35,26,12},       /* SYS_DELAY 12 samples */
+        {17,30,0x44a28000}, /* FMIN_SPEINDEX 1300 */
+        {17,11,0x42800000}, /* AGCMAXGAIN 64 */
+        {33,36,0x3f800000}, /* ASROUTGAIN 1 */
+    };
+    uint8_t bytes[4];
+    for (size_t i=0;i<sizeof(values)/sizeof(values[0]);i++) {
+        encode32(bytes,values[i].bits);
+        if (!vk_xvf_set(x,values[i].resource,values[i].command,bytes,4)) return false;
+    }
+    /* AGCGAIN is live state: it can change between write and read. Seed 2.0
+       once, then accept finite nonnegative adapted gains up to the baseline
+       maximum, rather than requiring an unstable exact readback. */
+    const uint8_t seed[]={17,13,4,0,0,0,0x40};
+    if (!x->transfer || x->transfer(x->ctx,seed,sizeof(seed),NULL,0)!=0) {
+        x->errors++; return false;
+    }
+    if (!vk_xvf_read(x,17,13,bytes,4)) return false;
+    uint32_t bits=le32(bytes);
+    if ((bits&0x80000000) || bits>0x42800000) { x->errors++; return false; }
+    return true;
+}
 static bool format(vk_xvf_t *x, vk_xvf_control_t *s) {
     uint8_t left[2], input;
     if (!vk_xvf_read(x,35,13,s->packed,2) || !vk_xvf_read(x,35,14,s->upsample,2) ||
@@ -61,6 +93,7 @@ void vk_xvf_poll(vk_xvf_t *x, vk_xvf_control_t *s, uint64_t now) {
         if (!vk_xvf_set(x,35,15,beam,2) || !vk_xvf_set(x,35,10,zero,1) ||
             !vk_xvf_set(x,35,13,zero,2) || !vk_xvf_set(x,35,14,up,2)) goto fault;
         if (!format(x,s)) goto fault;
+        if (!acoustic_baseline(x)) goto fault;
         s->format_ms=now; s->configured=true;
         s->format_step=0; s->aec_step=0;
     }

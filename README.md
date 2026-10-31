@@ -1,5 +1,9 @@
 # VoiceKey
 
+## 客厅两米收音配置
+
+默认全方向收音（方向门控关闭）、PCM 增益 1，使用“你好小智”模型默认唤醒阈值。启动及故障重配置时应用并校验 Seeed 音频基线，AGC 初始增益随后自动调整。两米覆盖是待实测目标，详见[配置与现场验证](docs/living-room-audio.md)。
+
 reSpeaker XVF3800 USB 4-Mic Array + **标准 XIAO ESP32S3** 固件原型。唯一日常连接是 XIAO 的 USB-C：同时提供麦克风、ChatGPT 播放和 Shift+Option+Command+S 键盘。默认使用接在 reSpeaker 3.5 mm 接口上的有源音箱；无需常驻 Mac 软件。
 
 目标唤醒词为 **你好小智**，已选择内置 `wn9_nihaoxiaozhi_tts` 模型，触发 **⇧⌥⌘S**。尚未烧录及验证识别效果；说完唤醒词后仍需短暂停顿。静音/低音量问题见 BUG-001，仍待修复。

@@ -13,7 +13,8 @@ static unsigned reads,creates,destroys,detections,triggers,delays;
 static void (*worker)(void *);
 static model_iface_data_t instances[2];
 static model_iface_data_t *create(const void *name,int mode) {
- (void)name;(void)mode;creates++;if(creates==2)return NULL;
+ assert(!strcmp(name,"wn9_nihaoxiaozhi_tts") && mode==DET_MODE_90);
+ creates++;if(creates==2)return NULL;
  return &instances[creates==1 ? 0:1];
 }
 static void destroy(model_iface_data_t *m) {assert(m==&instances[0]);destroys++;}

@@ -13,6 +13,9 @@ static srmodel_list_t *models;
 static int16_t *frame;
 static int chunk;
 static const char *model_name;
+/* Use the installed model's DET_MODE_90 default threshold on both initial
+   creation and epoch recovery. No custom threshold or distance/energy gate:
+   two-metre coverage is an acoustic acceptance target, not a model setting. */
 static void detect_task(void *arg) {
     (void)arg;
     uint32_t previous = UINT32_MAX;
