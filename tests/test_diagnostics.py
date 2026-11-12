@@ -81,3 +81,29 @@ assert r['agc_snapshot_valid'] and r['agc_gain']==0.03125 and r['agc_age_ms']==1
 b[165]=0;assert module.decode(b)['agc_gain'] is None
 b[174]=3;assert module.decode(b)['agc_age_ms'] is None
 print('PASS: read-only gain extension and stale/legacy absence')
+
+# New full report and optional report-ID byte, while legacy192 remains supported.
+b4=bytearray(b)+bytearray(32);b4[0]=4;b4[192]=15;b4[193]=7;b4[194]=2;b4[195]=2
+struct.pack_into('<HHIII',b4,196,90,90,20,7,9)
+b4[212:216]=bytes([2,2,2,1]);struct.pack_into('<IHH',b4,216,500,250,20)
+for raw in (b4,bytes([0])+b4):
+    r=module.decode(raw)
+    assert r['spatial_available'] and r['spatial_enabled'] and r['direction_valid'] and r['output_allowed']
+    assert r['direction_region']==1 and r['floor_owner']==1 and r['listener_region']==1
+    assert r['direction_degrees']==90 and r['direction_age_ms']==20 and r['floor_generation']==7
+    assert r['route_generation']==9 and r['confirmation_ms']==250 and r['lock_tolerance_degrees']==20
+b4[192]=1;r=module.decode(b4)
+assert r['direction_degrees'] is None and r['direction_region'] is None and not r['output_allowed']
+for raw in (b4[:192], bytes([3])+b4[1:]):
+    try: module.decode(raw)
+    except ValueError: pass
+    else: raise AssertionError('accepted mismatched schema/length')
+print('PASS: schema4 spatial diagnostics224/225bytes and legacy schema3 compatibility')
+
+b5=bytearray(b4)+bytearray(160);b5[0]=5;b5[228]=3;b5[229]=2;b5[230]=2;b5[236]=2
+struct.pack_into('<I',b5,224,12345)
+for raw in (b5,bytes([0])+b5):
+    r=module.decode(raw) if 'module' in globals() else decode(raw)
+    assert r['led_control']['request_id']==12345 and r['led_control']['result']=='covered'
+    assert r['led_control']['source']=='mute' and r['led_control']['applied_config'] is None
+print('PASS: schema5 LED request result and unavailable readback')

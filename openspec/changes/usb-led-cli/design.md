@@ -1,0 +1,4 @@
+## Design
+Use the existing unnumbered 224-byte Feature report for SET_REPORT. Bytes 0..3 are VKLC, byte4 version1, byte5 operation (0 auto, 1 RGB), bytes6..8 RGB, remainder zero. Auto requires zero RGB. GET_REPORT remains diagnostics schema4. Release1.4 advertises support. CLI reads release first and refuses older firmware.
+Commands only update a protected board override; the sole I2C task applies them. User RGB is static (including colors previously used as animation tokens), brightness30; black is off. Automatic mode preserves existing animations. Fault and physical mute override user color; override resumes afterward and resets on reboot. No flash persistence.
+USB write completion proves transfer, not physical application. CLI says submitted, never confirmed applied. Read-only status uses existing diagnostics; no fabricated RGB readback. No arbitrary I2C writes.

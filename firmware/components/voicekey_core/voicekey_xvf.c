@@ -17,8 +17,8 @@ bool vk_xvf_read(vk_xvf_t *x, uint8_t r, uint8_t c, uint8_t *out, size_t n) {
     x->errors++; return false;
 }
 bool vk_xvf_set(vk_xvf_t *x, uint8_t r, uint8_t c, const uint8_t *data, size_t n) {
-    if (!n || n > 8 || !data || !x->transfer) return false;
-    uint8_t tx[11] = {r, c, (uint8_t)n}, readback[8];
+    if (!n || n > 48 || !data || !x->transfer) return false;
+    uint8_t tx[51] = {r, c, (uint8_t)n}, readback[48];
     memcpy(tx + 3, data, n);
     if (x->transfer(x->ctx, tx, n + 3, NULL, 0) != 0) { x->errors++; return false; }
     if (!vk_xvf_read(x, r, c, readback, n)) return false;
@@ -27,6 +27,17 @@ bool vk_xvf_set(vk_xvf_t *x, uint8_t r, uint8_t c, const uint8_t *data, size_t n
 }
 bool vk_xvf_fresh(bool valid, uint64_t updated, uint64_t now) {
     return valid && now >= updated && now - updated <= VK_XVF_CACHE_MS;
+}
+vk_observation_t vk_xvf_direction(vk_xvf_t *x, uint64_t now) {
+    vk_observation_t o={.at_ms=now};
+    uint8_t raw[4];
+    if (!vk_xvf_read(x,20,18,raw,sizeof(raw))) return o;
+    unsigned angle=(unsigned)raw[0] | (unsigned)raw[1]<<8;
+    unsigned speech=(unsigned)raw[2] | (unsigned)raw[3]<<8;
+    /* Pinned Seeed1.0.8: DOA degrees and speech flag, two little-endian u16.
+       Reject unknown values rather than interpreting them as permission. */
+    if (angle>=360 || speech>1) return o;
+    o.degrees=angle; o.speech=speech!=0; o.valid=true; return o;
 }
 static uint32_t le32(const uint8_t *b) {
     return (uint32_t)b[0] | (uint32_t)b[1]<<8 | (uint32_t)b[2]<<16 | (uint32_t)b[3]<<24;

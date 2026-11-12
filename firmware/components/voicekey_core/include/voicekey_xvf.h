@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stddef.h>
+#include "voicekey_spatial.h"
 #define VK_XVF_ATTEMPTS 3u
 #define VK_XVF_CACHE_MS 100u
 #define VK_XVF_BUILD_BYTES 50u
@@ -20,6 +21,7 @@ typedef struct {
 bool vk_xvf_read(vk_xvf_t *x, uint8_t resource, uint8_t command, uint8_t *out, size_t n);
 bool vk_xvf_set(vk_xvf_t *x, uint8_t resource, uint8_t command, const uint8_t *data, size_t n);
 bool vk_xvf_fresh(bool valid, uint64_t updated_ms, uint64_t now_ms);
+vk_observation_t vk_xvf_direction(vk_xvf_t *protocol, uint64_t now_ms);
 typedef struct {
     bool configured, valid, muted, i2s_active, led_power;
     uint8_t version[3], error, build[VK_XVF_BUILD_BYTES], usb_depth[2], packed[2], upsample[2];

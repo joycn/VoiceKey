@@ -27,7 +27,7 @@ typedef enum { VK_HID_NONE, VK_HID_RELEASE, VK_HID_PRESS } vk_hid_action_t;
 typedef struct {
     vk_fifo_t usb, wake;
     int16_t usb_storage[VK_USB_CAPACITY], wake_storage[VK_WAKE_CAPACITY];
-    bool muted, audio_ok, connected, streaming, host_mute;
+    bool muted, audio_ok, connected, streaming, host_mute, output_blocked;
     bool pending, key_down, neutral_needed, triggered_before;
     uint32_t audio_epoch, wake_epoch, cooldown_ms;
     uint64_t requested_ms, last_trigger_ms, pressed_ms, led_until_ms;
@@ -41,6 +41,9 @@ void vk_set_audio_ok(vk_state_t *s, bool ok);
 void vk_set_connected(vk_state_t *s, bool connected);
 void vk_set_streaming(vk_state_t *s, bool streaming);
 void vk_set_host_mute(vk_state_t *s, bool muted);
+void vk_set_output_gate(vk_state_t *s, bool blocked);
+void vk_reset_listener(vk_state_t *s);
+void vk_publish_routed(vk_state_t *s, const int16_t *samples, size_t count, uint32_t audio_epoch, bool silent_listener);
 void vk_publish(vk_state_t *s, const int16_t *samples, size_t count, uint32_t audio_epoch);
 size_t vk_usb_read(vk_state_t *s, int16_t *samples, size_t count);
 size_t vk_usb_packet_samples(const vk_state_t *s);

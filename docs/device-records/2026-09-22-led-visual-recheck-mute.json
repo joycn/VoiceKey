@@ -1,0 +1,2802 @@
+[
+  {
+    "elapsed": 0.048,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 44586,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 0.253,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 44368,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 0.456,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 44188,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 0.662,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 43972,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 0.864,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 43771,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 1.066,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 43570,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 1.27,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 43349,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 1.475,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 43168,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 1.68,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 42947,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 1.886,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 42748,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 2.09,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 42545,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 2.292,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 42328,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 2.496,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 42131,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 2.7,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 41938,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 2.901,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 41725,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 3.105,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 41524,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 3.31,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 41323,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 3.515,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 41113,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 3.716,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 40903,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 3.921,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 40720,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 4.124,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 40504,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 4.325,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 40306,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 4.529,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 40141,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 4.734,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 39892,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 4.938,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 39694,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 5.144,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 39478,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 5.35,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 39280,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 5.552,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 39100,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 5.754,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 38872,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 5.955,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 38674,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 6.158,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 38460,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 6.364,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 38260,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 6.567,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 38062,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 6.769,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 37867,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 6.974,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 37651,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 7.175,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 37453,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 7.38,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 37255,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 7.586,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 37042,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 7.789,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 36838,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 7.994,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 36640,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 8.196,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 36424,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 8.402,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 36226,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 8.606,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 36016,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 8.81,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 35824,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 9.014,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 35611,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 9.22,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 35413,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 9.422,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 35200,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 9.624,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 35017,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 9.828,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 34798,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 10.031,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 34603,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 10.233,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 34390,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 10.438,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 34195,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 10.64,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 34012,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 10.845,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 33787,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 11.048,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 33571,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 11.254,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 33376,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 11.459,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 33159,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 11.661,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 32962,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 11.867,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 32758,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 12.072,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 32548,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 12.275,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 32353,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 12.477,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 32155,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 12.681,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 31957,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 12.883,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 31735,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 13.088,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 31543,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 13.29,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 31330,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 13.495,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 31129,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 13.699,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 30952,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 13.902,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 30730,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 14.107,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 30517,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 14.313,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 30322,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 14.517,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 30109,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 14.718,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 29950,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 14.924,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 29701,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 15.126,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 29506,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 15.328,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 29293,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 15.533,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 29098,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 15.737,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 28921,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 15.942,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 28699,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 16.149,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 28483,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 16.351,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 28267,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 16.552,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 28069,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 16.76,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 27904,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 16.965,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 27667,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 17.171,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 27454,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 17.377,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 27244,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 17.583,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 27046,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 17.787,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 26839,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 17.993,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 26632,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 18.196,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 26455,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 18.402,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 26242,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 18.607,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 26029,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 18.812,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 25825,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 19.013,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 25615,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 19.219,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 25405,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 19.421,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 25225,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 19.629,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 25012,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 19.832,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 24805,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 20.037,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 24601,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 20.24,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 24388,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 20.447,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 24175,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 20.649,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 23992,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 20.853,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 23776,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 21.054,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 23590,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 21.256,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 23377,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 21.459,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 23164,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 21.664,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 22972,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 21.865,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 22762,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 22.067,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 22555,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 22.268,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 22375,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 22.471,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 22165,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 22.673,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 21952,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 22.876,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 21745,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 23.081,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 21559,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 23.287,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 21346,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 23.491,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 21136,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 23.698,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 20938,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 23.902,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 20731,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 24.103,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 20521,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 24.306,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 20311,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 24.509,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 20131,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 24.711,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 19918,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 24.918,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 19759,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 25.123,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 19528,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 25.329,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 19315,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 25.534,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 19102,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 25.738,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 18886,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 25.944,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 18679,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 26.15,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 18475,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 26.353,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 18292,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 26.557,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 18079,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 26.759,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 17866,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 26.961,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 17710,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 27.168,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 17464,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 27.371,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 17248,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 27.574,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 17053,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 27.777,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 16843,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 27.979,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 16684,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 28.186,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 16462,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 28.392,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 16246,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 28.594,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 16036,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 28.8,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 15823,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 29.005,
+    "muted": false,
+    "source": "preview",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 15634,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 29.208,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 29.412,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 29.614,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 29.821,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 30.025,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 30.227,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 30.429,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 30.633,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 30.842,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 31.044,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 31.245,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 31.448,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 31.658,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 31.861,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 32.065,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 32.273,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 32.478,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 32.68,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 32.882,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 33.084,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 33.29,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 33.491,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 33.696,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 33.899,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 34.101,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 34.307,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 34.513,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 34.717,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 34.921,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 35.125,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 35.33,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 35.531,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 35.733,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 35.938,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 36.141,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 36.343,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 36.548,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 36.749,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 36.953,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 37.159,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 37.36,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 37.565,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 37.768,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 37.974,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 38.177,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 38.379,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 38.582,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 38.788,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 38.994,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 39.196,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 39.398,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 39.604,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 39.811,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 40.016,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 40.218,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 40.42,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 40.626,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 40.832,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 41.036,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 41.237,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 41.441,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 41.647,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 41.848,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 42.051,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 42.257,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 42.463,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 42.665,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 42.869,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 43.071,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 43.273,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 43.475,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 43.681,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 43.887,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 44.089,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 44.295,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 44.498,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 44.703,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 44.906,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 45.11,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 45.316,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 45.519,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 45.724,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 45.926,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 46.132,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 46.338,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 46.54,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 46.746,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 46.95,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 47.153,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 47.356,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 47.558,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 47.761,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 47.964,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 48.168,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 48.37,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 48.577,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 48.778,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 48.985,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 49.192,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 49.393,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 49.599,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 49.804,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 50.009,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 50.211,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 50.415,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 50.621,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 50.825,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 51.031,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 51.237,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 51.442,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 51.643,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 51.848,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 52.052,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 52.256,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 52.457,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 52.659,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 52.863,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 53.068,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 53.272,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 53.473,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 53.677,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 53.883,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 54.091,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 54.294,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 54.497,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 54.7,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 54.904,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 55.108,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 55.312,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 55.516,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 55.721,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 55.924,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 56.128,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 56.33,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 56.537,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 56.744,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  },
+  {
+    "elapsed": 56.946,
+    "muted": false,
+    "source": "idle",
+    "result": "applied",
+    "reason": "none",
+    "remaining_ms": 0,
+    "board_valid": true,
+    "i2c_errors": 0
+  }
+]

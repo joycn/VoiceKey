@@ -23,9 +23,9 @@ openspec validate migrate-respeaker-xvf3800 --strict
 
 ## 一次性诊断
 
-`python3 -m pip install hidapi` 后，在设备已枚举时手动运行 `./scripts/diagnose.py`。脚本读取现有HID端点0的192字节schema3 Feature Report，不安装后台服务，不增加CDC/USB端点。默认 VID0xCAFE/PID0x4014仅用于开发，可传`--vid`、`--pid`。macOS共享访问已实机读取验证；先初始化hidapi，再关闭独占打开。若共享接口不可用，脚本报错，不抢占键盘。`--samples 151 --interval 0.2` 可收集约30秒JSONL，完成后退出；报告不包含原始音频。
+`python3 -m pip install hidapi` 后，在设备已枚举时手动运行 `./scripts/diagnose.py`。脚本读取现有HID端点0的384字节schema5 Feature Report（兼容读取旧固件224字节schema4和192字节schema3），不安装后台服务，不增加CDC/USB端点。默认 VID0xCAFE/PID0x4014仅用于开发，可传`--vid`、`--pid`。macOS共享访问已实机读取验证；先初始化hidapi，再关闭独占打开。若共享接口不可用，脚本报错，不抢占键盘。`--samples 151 --interval 0.2` 可收集约30秒JSONL，完成后退出；报告不包含原始音频。
 
-报告为小端：byte0 schema3；1–3 XMOS版本；4 board bits(valid/muted/I2S active)；5–6 VoiceKey release1.2；7 runtime bits0–6(audio/connected/mic stream/speaker stream/wake ready/initialization complete/transport ready)；8–55为12个uint32：I2C错误、busy、缓存年龄ms、USB样本数、wake样本数、播放帧数、USB丢样、USB欠载、wake丢样、播放丢帧、播放欠载、实际DMA消费帧数；56–63为应用ELF SHA256前8字节，用于识别运行固件；64/68/72为board/audio/wake初始化错误（int32，0成功，0x80000000表示未尝试，ESP_FAIL=-1单独保留）；76为实测PSRAM字节数，80/84为当前/历史最小free heap字节数，88为capture fault generation，92为transport fault计数。每项后半部字段均4字节。HID class buffer和Feature长度均192，键盘中断端点仍8字节，EP0最大包仍64并支持多包控制传输。计数器为低32位并允许回绕。
+报告为小端：byte0 schema5；1–3 XMOS版本；4 board bits(valid/muted/I2S active)；5–6 VoiceKey release1.6；7 runtime bits0–6(audio/connected/mic stream/speaker stream/wake ready/initialization complete/transport ready)；8–55为12个uint32：I2C错误、busy、缓存年龄ms、USB样本数、wake样本数、播放帧数、USB丢样、USB欠载、wake丢样、播放丢帧、播放欠载、实际DMA消费帧数；56–63为应用ELF SHA256前8字节，用于识别运行固件；64/68/72为board/audio/wake初始化错误（int32，0成功，0x80000000表示未尝试，ESP_FAIL=-1单独保留）；76为实测PSRAM字节数，80/84为当前/历史最小free heap字节数，88为capture fault generation，92为transport fault计数。每项后半部字段均4字节。HID class buffer和Feature长度均384，键盘中断端点仍8字节，EP0最大包仍64并支持多包控制传输。计数器为低32位并允许回绕。
 
 ## XMOS维护与ESP恢复
 
@@ -44,13 +44,13 @@ XMOS镜像pin见`firmware/xmos/manifest.json`。从该固定commit下载后执�
 
 时钟故障存在检测延迟：若短中断在下一轮状态检查前恢复，DMA可能已在完成回调前送出预填样本，软件无法撤回。不能把回调中的补零当作已经发往DAC的样本为零；实机需测量3个48帧DMA块及外部DAC的尾音边界。测试区分检测前在途数据和检测后必须清空的队列。
 
-## 配置核验与schema3扩展
+## 配置核验与诊断扩展
 
 启动查询VERSION1.0.8、完整50-byte BLD_MSG和USB_BIT_DEPTH=(0,0)（INT模式）。BLD_MSG仅作为原始构建元数据，不猜测其固定内容，不能证明正在运行的XMOS镜像SHA256。维护时仍必须核对manifest中的文件哈希。设置并读回左(6,3)、输入非打包、OP_PACKED=(0,0)、OP_UPSAMPLE=(1,1)；随后每500ms复查格式。格式不匹配先关闭采集，下一轮重新配置。
 
 每个至少250ms的DMA消费测量窗口计算实际帧率，47520–48480Hz视为48k兼容（±1%用于故障识别，不是声卡精度指标）。启动和>5ms时钟中断后重新测量，未合格前USB录音输出零样本并拒绝新唤醒；播放仍由独立传输状态控制。该测量不能代替逻辑分析仪验证主从、位宽和PCM有效位。
 
-schema3为192bytes，前96bytes布局保持，schema=3、release=1.2；扩展均为小端：
+历史schema3为192bytes、schema4为224bytes；当前schema5为384bytes，前224bytes字段位置保持，release=1.6。以下96–191字节扩展仍为小端：
 
 | 偏移 | 内容 |
 | --- | --- |
@@ -76,3 +76,7 @@ AEC每秒最多采样一次，全部I²C在控制任务内执行；任一读取�
 USB未枚举时，按[维护流程](maintenance.md)构建USB Serial/JTAG诊断镜像；正式构建与诊断构建完全分离。诊断镜像不初始化PSRAM、音频或模型，只读取控制状态。
 
 AGC诊断每秒最多读一次17/13，不写任何增益参数；失败或板缓存无效、超过2秒时显示null。小于1的非负有限读数保留，不按文档名义范围截断。可选AGC读取失败只使该快照失效；安全控制缓存的100ms失效关闭规则仍适用。extension4尚需烧录和实机总线稳定性验证。
+
+schema4引入、schema5保留的192–223字节为方向/发言权扩展：192为enabled/valid/speech/output-allowed/observe-only位；193为输出原因；194/195为区域/owner加1（0表示无）；196/198为角度/锁角度uint16；200/204/208为年龄ms、floor generation、route generation uint32；212为listener区域加1；213/214/215为策略、区域数、音频源能力；216为listener持续时间uint32；220/222为确认ms、锁容差uint16。具体语义见[语音输入原子能力](voice-input-primitives.md)。
+
+USB LED 控制命令及主机工具见 [LED CLI](led-cli.md)。

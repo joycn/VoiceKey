@@ -14,6 +14,14 @@
 #include <inttypes.h>
 
 static vk_state_t state;
+static vk_spatial_t spatial;
+static uint32_t route_generation, floor_generation;
+static int listener_region = VK_REGION_NONE;
+static uint64_t listener_since, observation_after;
+static bool spatial_safe;
+static uint32_t led_denied_generation;
+static int led_denied_region=-1;
+static void spatial_inputs_locked(void);
 static uint32_t wake_inferences, wake_detections, wake_peak_epoch;
 static uint16_t wake_peak;
 static uint64_t wake_observed_ms;
@@ -37,7 +45,80 @@ static portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED;
 #define LOCK() portENTER_CRITICAL(&mux)
 #define UNLOCK() portEXIT_CRITICAL(&mux)
 static uint64_t now_ms(void) { return esp_timer_get_time() / 1000; }
-void vk_runtime_init(void) { vk_init(&state, CONFIG_VOICEKEY_COOLDOWN_MS); vk_playback_init(&playback); }
+void vk_runtime_init(void) {
+    vk_init(&state, CONFIG_VOICEKEY_COOLDOWN_MS); vk_playback_init(&playback);
+    vk_spatial_init(&spatial);
+#ifdef CONFIG_VOICEKEY_SPATIAL
+    vk_spatial_config_t config=vk_spatial_defaults(); config.enabled=true;
+    vk_spatial_configure(&spatial,&config);
+#endif
+    listener_region=VK_REGION_NONE; listener_since=observation_after=0;
+    route_generation=0; floor_generation=spatial.generation; spatial_safe=false;
+    vk_set_output_gate(&state,spatial.config.enabled);
+}
+/* Called under runtime mux. Board never calls runtime while holding board mux. */
+static void spatial_inputs_locked(void) {
+    vk_board_status_t b; vk_board_status(&b);
+    uint64_t now=now_ms();
+    vk_set_mute(&state,!b.valid || !b.i2s_active || b.muted || !capture_clock_ok);
+    if (!spatial.config.enabled) return;
+    bool safe=!state.muted && state.audio_ok;
+    if (!safe) {
+        observation_after=now; spatial.observation.valid=false;
+        vk_floor_revoke(&spatial);
+    } else {
+        vk_observation_t o=b.direction;
+        if (o.at_ms<observation_after) o.valid=false;
+        if (!spatial_safe || !spatial.have_observation || o.at_ms!=spatial.observation.at_ms ||
+            o.valid!=spatial.observation.valid || o.speech!=spatial.observation.speech || o.degrees!=spatial.observation.degrees)
+            vk_spatial_observe(&spatial,o,now);
+        vk_spatial_tick(&spatial,now);
+    }
+    spatial_safe=safe;
+    if (spatial.config.observe_only) { vk_set_output_gate(&state,false); return; }
+    bool fresh=safe && vk_observation_fresh(&spatial.observation,now);
+    int source=listener_region;
+    if (!fresh) source=VK_REGION_NONE;
+    else if (spatial.observation.speech) source=vk_spatial_region(&spatial,now);
+    if (source!=listener_region) {
+        listener_region=source; listener_since=now;
+        vk_reset_listener(&state); route_generation++;
+    }
+    if (floor_generation!=spatial.generation) {
+        floor_generation=spatial.generation; route_generation++;
+        vk_fifo_clear(&state.usb); vk_reset_listener(&state); listener_since=now;
+    }
+    bool blocked=!safe || vk_spatial_gate(&spatial,now)!=VK_GATE_ALLOW;
+    if (state.output_blocked!=blocked) { vk_set_output_gate(&state,blocked); route_generation++; }
+}
+bool vk_runtime_direction_enabled(void) {
+    LOCK(); bool enabled=spatial.config.enabled; UNLOCK(); return enabled;
+}
+bool vk_runtime_voice_configure(const vk_spatial_config_t *config) {
+    LOCK(); bool ok=vk_spatial_configure(&spatial,config);
+    if (ok) {
+        observation_after=now_ms(); spatial_safe=false; listener_region=VK_REGION_NONE;
+        route_generation++; vk_reset_listener(&state); vk_fifo_clear(&state.usb); state.pending=false;
+        vk_set_output_gate(&state,spatial.config.enabled); spatial_inputs_locked();
+    }
+    UNLOCK(); return ok;
+}
+bool vk_runtime_floor_request(int region, bool preempt) {
+    LOCK(); spatial_inputs_locked();
+    bool ok=!state.muted && state.audio_ok && vk_observation_fresh(&spatial.observation,now_ms()) &&
+        vk_floor_request(&spatial,region,preempt,now_ms());
+    if(!ok && region>=0 && region<spatial.config.count){led_denied_region=region;led_denied_generation++;}
+    spatial_inputs_locked(); UNLOCK(); return ok;
+}
+bool vk_runtime_floor_release(int region) {
+    LOCK(); bool ok=vk_floor_release(&spatial,region); spatial_inputs_locked(); UNLOCK(); return ok;
+}
+void vk_runtime_spatial_status(vk_spatial_t *out) {
+    LOCK(); spatial_inputs_locked(); *out=spatial; UNLOCK();
+}
+uint32_t vk_runtime_route_generation(void) {
+    LOCK(); spatial_inputs_locked(); uint32_t route=route_generation; UNLOCK(); return route;
+}
 static void transport_fault(void) {
     if (transport_ready) {
         transport_faults++; capture_generation++; vk_set_audio_ok(&state, false);
@@ -48,10 +129,9 @@ static void transport_fault(void) {
     reset_playback(false);
 }
 void vk_runtime_inputs(void) {
-    vk_board_status_t board; vk_board_status(&board);
     int64_t now = esp_timer_get_time();
     LOCK();
-    vk_set_mute(&state, !board.valid || !board.i2s_active || board.muted || !capture_clock_ok);
+    spatial_inputs_locked();
     if (transport_ready && (!last_dma_us || now - last_dma_us > VK_TX_STALE_US)) transport_fault();
     UNLOCK();
 }
@@ -80,10 +160,19 @@ void vk_runtime_init_status(uint32_t board, uint32_t audio, uint32_t wake, bool 
 }
 bool vk_runtime_wake_ready(void) { LOCK(); bool ready = wake_ready; UNLOCK(); return ready; }
 void vk_runtime_publish(const int16_t *samples, size_t count, uint32_t epoch) {
-    LOCK(); vk_set_mute(&state, (vk_board_muted() || !capture_clock_ok)); vk_publish(&state, samples, count, epoch); UNLOCK();
+    vk_runtime_publish_routed(samples,count,epoch,vk_runtime_route_generation());
+}
+void vk_runtime_publish_routed(const int16_t *samples, size_t count, uint32_t epoch, uint32_t route) {
+    LOCK(); spatial_inputs_locked();
+    if (route==route_generation) {
+        bool silent=spatial.config.enabled && !spatial.config.observe_only &&
+            (listener_region==VK_REGION_NONE || !spatial.observation.speech);
+        vk_publish_routed(&state,samples,count,epoch,silent);
+    }
+    UNLOCK();
 }
 size_t vk_runtime_wake_read(int16_t *samples, size_t count, uint32_t *epoch) {
-    LOCK(); vk_set_mute(&state, (vk_board_muted() || !capture_clock_ok));
+    LOCK(); spatial_inputs_locked();
     size_t n = vk_wake_read(&state, samples, count, epoch); UNLOCK(); return n;
 }
 void vk_runtime_wake_observed(uint32_t epoch, uint16_t peak, bool detected) {
@@ -93,19 +182,40 @@ void vk_runtime_wake_observed(uint32_t epoch, uint16_t peak, bool detected) {
     UNLOCK();
 }
 void vk_runtime_trigger(uint32_t epoch) {
-    LOCK(); vk_set_mute(&state, (vk_board_muted() || !capture_clock_ok));
-    vk_request_trigger(&state, now_ms(), epoch); UNLOCK();
+    LOCK(); spatial_inputs_locked();
+    uint64_t now=now_ms();
+    bool shortcut=true;
+    if (spatial.config.enabled && !spatial.config.observe_only) {
+        bool attributed=state.connected && !state.muted && state.audio_ok && epoch==state.wake_epoch &&
+            listener_region!=VK_REGION_NONE && vk_spatial_region(&spatial,now)==listener_region &&
+            now>=listener_since && now-listener_since>=spatial.config.confirm_ms;
+        if (!attributed) { state.suppressed++; UNLOCK(); return; }
+        if (spatial.config.policy==VK_FLOOR_KEYWORD) {
+            shortcut=spatial.owner==VK_REGION_NONE;
+            vk_floor_request(&spatial,listener_region,true,now);
+            spatial_inputs_locked();
+            /* This event was checked before its own grant invalidated the old
+               listener epoch. All other in-flight events retain their old token. */
+            epoch=state.wake_epoch;
+        } else if (state.output_blocked) { led_denied_region=listener_region;led_denied_generation++;state.suppressed++; UNLOCK(); return; }
+    }
+    if (shortcut) vk_request_trigger(&state, now, epoch);
+    UNLOCK();
 }
 static size_t audio_packet(int16_t *samples) {
-    LOCK(); vk_set_mute(&state, (vk_board_muted() || !capture_clock_ok));
+    LOCK(); spatial_inputs_locked();
     size_t count = vk_usb_packet_samples(&state);
     vk_usb_read(&state, samples, count); UNLOCK(); return count;
 }
-static void connected(bool v) { LOCK(); vk_set_connected(&state, v); playback_requested = false; reset_playback(false); UNLOCK(); }
+static void connected(bool v) {
+    LOCK(); vk_set_connected(&state,v);
+    if (!v && spatial.config.enabled) { vk_floor_revoke(&spatial); spatial_inputs_locked(); }
+    playback_requested=false; reset_playback(false); UNLOCK();
+}
 static void streaming(bool v) { LOCK(); vk_set_streaming(&state, v); UNLOCK(); }
 static void host_mute(bool v) { LOCK(); vk_set_host_mute(&state, v); UNLOCK(); }
 static vk_hid_action_t hid_next(uint64_t now) {
-    LOCK(); vk_set_mute(&state, (vk_board_muted() || !capture_clock_ok));
+    LOCK(); spatial_inputs_locked();
     vk_hid_action_t a = vk_hid_next(&state, now); UNLOCK(); return a;
 }
 static void hid_commit(vk_hid_action_t a, uint64_t now) {
@@ -157,14 +267,35 @@ static void put32(uint8_t *b, size_t offset, uint32_t v) {
     for (unsigned i = 0; i < 4; ++i) b[offset+i] = (uint8_t)(v >> (8*i));
 }
 static size_t diagnostics(uint8_t *buffer, size_t capacity) {
-    uint8_t b[VK_DIAGNOSTIC_SIZE] = {3};
+    uint8_t b[VK_DIAGNOSTIC_SIZE] = {5};
     vk_board_status_t board; vk_board_status(&board);
     memcpy(b+1, board.version, 3);
     b[4] = (board.valid ? 1 : 0) | (board.muted ? 2 : 0) | (board.i2s_active ? 4 : 0);
-    b[5] = 1; b[6] = 2; /* VoiceKey firmware protocol release 1.2 */
+    b[5] = 1; b[6] = 6; /* VoiceKey protocol release 1.6: semantic LED state */
     put32(b, 8, board.errors); put32(b, 12, board.busy);
     uint64_t age = now_ms() - board.updated_ms; put32(b, 16, age > UINT32_MAX ? UINT32_MAX : age);
     LOCK();
+    if (spatial.config.enabled) spatial_inputs_locked();
+    uint64_t direction_now=now_ms();
+    bool direction_valid=spatial.config.enabled && vk_observation_fresh(&spatial.observation,direction_now);
+    b[192]=(spatial.config.enabled?1:0) | (direction_valid?2:0) |
+        (direction_valid && spatial.observation.speech?4:0) |
+        (!state.output_blocked && !state.muted && state.audio_ok?8:0) | (spatial.config.observe_only?16:0);
+    b[193]=vk_spatial_gate(&spatial,direction_now);
+    b[194]=vk_spatial_region(&spatial,direction_now)+1; b[195]=spatial.owner+1;
+    uint16_t angle=vk_angle_calibrate(spatial.observation.degrees,spatial.config.offset);
+    b[196]=angle; b[197]=angle>>8;
+    b[198]=spatial.locked_angle; b[199]=spatial.locked_angle>>8;
+    uint64_t direction_age=spatial.have_observation && direction_now>=spatial.observation.at_ms ?
+        direction_now-spatial.observation.at_ms : UINT64_MAX;
+    put32(b,200,direction_age>UINT32_MAX?UINT32_MAX:direction_age);
+    put32(b,204,spatial.generation); put32(b,208,route_generation);
+    b[212]=listener_region+1; b[213]=spatial.config.policy; b[214]=spatial.config.count;
+    b[215]=1; /* automatic processed source only */
+    uint64_t source_age=listener_region!=VK_REGION_NONE && direction_now>=listener_since ? direction_now-listener_since : 0;
+    put32(b,216,source_age>UINT32_MAX?UINT32_MAX:source_age);
+    b[220]=spatial.config.confirm_ms; b[221]=spatial.config.confirm_ms>>8;
+    b[222]=spatial.config.tolerance; b[223]=spatial.config.tolerance>>8;
     b[7] = (state.audio_ok ? 1 : 0) | (state.connected ? 2 : 0) | (state.streaming ? 4 : 0) | (playback.active ? 8 : 0) | (wake_ready ? 16 : 0) |
         (initialization_complete ? 32 : 0) | (transport_ready ? 64 : 0);
     put32(b, 20, state.usb.count); put32(b, 24, state.wake.count); put32(b, 28, playback.count);
@@ -204,6 +335,7 @@ static size_t diagnostics(uint8_t *buffer, size_t capacity) {
     b[165]=board.valid && board.agc_valid && agc_age<=2000;
     put32(b,166,board.agc_gain_bits);
     put32(b,170,agc_age>UINT32_MAX ? UINT32_MAX : agc_age);
+    vk_board_led_diagnostics(b+224);
     size_t n = capacity < sizeof(b) ? capacity : sizeof(b); memcpy(buffer, b, n); return n;
 }
 
@@ -211,7 +343,7 @@ esp_err_t vk_runtime_usb_start(void) {
     const vk_usb_hooks_t hooks = {.audio_packet = audio_packet, .connected = connected,
         .streaming = streaming, .host_mute = host_mute, .playback_active = playback_active,
         .playback_packet = playback_packet, .playback_control = playback_control, .feedback = feedback,
-        .diagnostics = diagnostics, .hid_next = hid_next, .hid_commit = hid_commit};
+        .led_command = vk_board_led_command, .led_config = vk_board_led_config, .led_override = vk_board_led_override, .diagnostics = diagnostics, .hid_next = hid_next, .hid_commit = hid_commit};
     return vk_usb_start(&hooks);
 }
 void vk_runtime_ui(bool wake_ok) {
@@ -225,13 +357,13 @@ void vk_runtime_ui(bool wake_ok) {
     }
     if (raw != raw_last) { raw_last = raw; changed_ms = now; }
     LOCK();
-    vk_set_mute(&state, (vk_board_muted() || !capture_clock_ok));
+    spatial_inputs_locked();
     /* Ignore a button held through startup. Only a debounced release arms
        the next press; boot/recovery gestures must not emit a shortcut. */
     if (!button_armed && !raw && now - changed_ms >= 30) button_armed = true;
     if (raw != stable && now - changed_ms >= 30) {
         stable = raw;
-        if (stable && button_armed) vk_request_trigger(&state, now, state.wake_epoch);
+        if (stable && button_armed && !state.output_blocked) vk_request_trigger(&state, now, state.wake_epoch);
     }
     unsigned rgb = state.muted ? 0x200000 :
         (!state.audio_ok || !wake_ok) ? 0x200020 :
@@ -249,4 +381,16 @@ void vk_runtime_log(void) {
     ESP_LOGI("voicekey", "audio=%d mute=%d streaming=%d usb=%u wake=%u dropped=%"PRIu64"/%"PRIu64
         " underrun=%"PRIu64" triggers=%"PRIu64" suppressed=%"PRIu64,
         audio, mute, stream, (unsigned)u, (unsigned)w, ud, wd, um, tr, su);
+}
+
+void vk_runtime_led_inputs(vk_led_inputs_t *out) {
+    LOCK();
+    *out=(vk_led_inputs_t){.fault=!state.audio_ok || !wake_ready,
+        .connected=state.connected,.spatial=spatial.config.enabled&&!spatial.config.observe_only,
+        .valid=spatial_safe&&vk_observation_fresh(&spatial.observation,now_ms()),
+        .owner=spatial.owner,.floor_generation=spatial.generation,
+        .receiving=!state.muted&&state.audio_ok&&!state.host_mute&&state.connected&&state.streaming&&
+            !state.output_blocked&&vk_spatial_gate(&spatial,now_ms())==VK_GATE_ALLOW,
+        .denied_generation=led_denied_generation,.denied_region=led_denied_region};
+    UNLOCK();
 }

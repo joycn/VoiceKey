@@ -1,0 +1,125 @@
+Checking "python3" ...
+Python 3.11.18
+"python3" has been detected
+Activating ESP-IDF 5.5
+Setting IDF_PATH to '/Users/joy/esp/esp-idf-v5.5.2'.
+* Checking python version ... 3.11.18
+* Checking python dependencies ... OK
+* Deactivating the current ESP-IDF environment (if any) ... OK
+* Establishing a new ESP-IDF environment ... OK
+* Identifying shell ... bash
+* Detecting outdated tools in system ... OK - no outdated tools found
+* Shell completion ... Autocompletion code generated
+WARNING: Failed to load shell autocompletion for bash version: 3.2.57(1)-release!
+
+Done! You can now compile ESP-IDF projects.
+Go to the project directory and run:
+
+  idf.py build
+PASS: cached configuration is XIAO8MB/Octal/noUART
+Executing action: all (aliases: build)
+Running ninja in directory /Users/joy/projects/LMic/firmware/build
+Executing "ninja all"...
+[1/4] cd /Users/joy/projects/LMic/firmware/build/esp-idf/esptool_py && /Users/joy/.espressif-arm64/python_env/idf5.5_py3.11_env/bin/python /Users/joy/esp/esp-idf-v5.5.2/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /Users/joy/projects/LMic/firmware/build/partition_table/partition-table.bin /Users/joy/projects/LMic/firmware/build/voicekey.bin
+voicekey.bin binary size 0x672d0 bytes. Smallest app partition is 0x400000 bytes. 0x398d30 bytes (90%) free.
+[2/4] Performing build step for 'bootloader'
+[1/1] cd /Users/joy/projects/LMic/firmware/build/bootloader/esp-idf/esptool_py && /Users/joy/.espressif-arm64/python_env/idf5.5_py3.11_env/bin/python /Users/joy/esp/esp-idf-v5.5.2/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /Users/joy/projects/LMic/firmware/build/bootloader/bootloader.bin
+Bootloader binary size 0x57c0 bytes. 0x2840 bytes (31%) free.
+[3/4] No install step for 'bootloader'
+[4/4] Completed 'bootloader'
+
+Project build complete. To flash, run:
+ idf.py flash
+or
+ idf.py -p PORT flash
+or
+ python -m esptool --chip esp32s3 -b 460800 --before default_reset --after hard_reset write_flash --flash_mode dio --flash_size 8MB --flash_freq 80m 0x0 build/bootloader/bootloader.bin 0x8000 build/partition_table/partition-table.bin 0x10000 build/voicekey.bin 0x410000 build/srmodels/srmodels.bin
+or from the "/Users/joy/projects/LMic/firmware/build" directory
+ python -m esptool --chip esp32s3 -b 460800 --before default_reset --after hard_reset write_flash "@flash_args"
+bootloader/bootloader.bin | 0x0 | 22464 | 58be4685c416ee2a2667f9ea355c1e094b428d9c8401031a310295893c228f73
+voicekey.bin | 0x10000 | 422608 | 987d7e375c5fe86c6277ec51284d17e550f4ab28e72786978dd98191965899ab
+partition_table/partition-table.bin | 0x8000 | 3072 | 2b20bd22ecb09964c233a82504470c6818863aea98e4250ea4321d9e88fe8a10
+srmodels/srmodels.bin | 0x410000 | 291042 | 56990e6b97faeced7aeea48c89f15b0d0c579c012a8106b91e96141f490051a6
+PASS: 8 MB headers/configuration, partition MD5/integrity/types/flags/bounds, NVS/PHY, 4 MB app, 3 MB model, no OTA or led_strip
+Executing action: flash
+Running ninja in directory /Users/joy/projects/LMic/firmware/build
+Executing "ninja flash"...
+[1/5] cd /Users/joy/projects/LMic/firmware/build/esp-idf/esptool_py && /Users/joy/.espressif-arm64/python_env/idf5.5_py3.11_env/bin/python /Users/joy/esp/esp-idf-v5.5.2/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /Users/joy/projects/LMic/firmware/build/partition_table/partition-table.bin /Users/joy/projects/LMic/firmware/build/voicekey.bin
+voicekey.bin binary size 0x672d0 bytes. Smallest app partition is 0x400000 bytes. 0x398d30 bytes (90%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /Users/joy/projects/LMic/firmware/build/bootloader/esp-idf/esptool_py && /Users/joy/.espressif-arm64/python_env/idf5.5_py3.11_env/bin/python /Users/joy/esp/esp-idf-v5.5.2/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /Users/joy/projects/LMic/firmware/build/bootloader/bootloader.bin
+Bootloader binary size 0x57c0 bytes. 0x2840 bytes (31%) free.
+[3/5] No install step for 'bootloader'
+[4/5] Completed 'bootloader'
+[4/5] cd /Users/joy/esp/esp-idf-v5.5.2/components/esptool_py && /private/tmp/voicekey-build-tools/lib/python3.11/site-packages/cmake/data/bin/cmake -D IDF_PATH=/Users/joy/esp/esp-idf-v5.5.2 -D "SERIAL_TOOL=/Users/joy/.espressif-arm64/python_env/idf5.5_py3.11_env/bin/python;;/Users/joy/esp/esp-idf-v5.5.2/components/esptool_py/esptool/esptool.py;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/Users/joy/projects/LMic/firmware/build -P /Users/joy/esp/esp-idf-v5.5.2/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32s3 -p /dev/cu.usbmodem83301 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 8MB 0x0 bootloader/bootloader.bin 0x10000 voicekey.bin 0x8000 partition_table/partition-table.bin 0x410000 srmodels/srmodels.bin
+esptool.py v4.12.0
+Serial port /dev/cu.usbmodem83301
+Connecting...
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+USB mode: USB-Serial/JTAG
+MAC: 68:ee:8f:46:c6:2c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x00077fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Flash will be erased from 0x00410000 to 0x00457fff...
+SHA digest in image updated
+Compressed 22464 bytes to 14259...
+Writing at 0x00000000... (100 %)
+Wrote 22464 bytes (14259 compressed) at 0x00000000 in 0.4 seconds (effective 500.0 kbit/s)...
+Hash of data verified.
+Compressed 422608 bytes to 226157...
+Writing at 0x00010000... (7 %)
+Writing at 0x0001bfc9... (14 %)
+Writing at 0x000232ff... (21 %)
+Writing at 0x000296cd... (28 %)
+Writing at 0x0002f010... (35 %)
+Writing at 0x000364e4... (42 %)
+Writing at 0x0003c677... (50 %)
+Writing at 0x00046c40... (57 %)
+Writing at 0x0004d10d... (64 %)
+Writing at 0x00052620... (71 %)
+Writing at 0x0005d429... (78 %)
+Writing at 0x0006350e... (85 %)
+Writing at 0x0006b7ee... (92 %)
+Writing at 0x00071dbe... (100 %)
+Wrote 422608 bytes (226157 compressed) at 0x00010000 in 2.6 seconds (effective 1319.4 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 120...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (120 compressed) at 0x00008000 in 0.0 seconds (effective 546.2 kbit/s)...
+Hash of data verified.
+Compressed 291044 bytes to 229156...
+Writing at 0x00410000... (7 %)
+Writing at 0x00414d17... (14 %)
+Writing at 0x0041a338... (21 %)
+Writing at 0x0041f1d6... (28 %)
+Writing at 0x004235f0... (35 %)
+Writing at 0x004282f4... (42 %)
+Writing at 0x0042d9d7... (50 %)
+Writing at 0x00432c2a... (57 %)
+Writing at 0x004386cb... (64 %)
+Writing at 0x0043e216... (71 %)
+Writing at 0x00443518... (78 %)
+Writing at 0x00447b43... (85 %)
+Writing at 0x0044c96e... (92 %)
+Writing at 0x0045254c... (100 %)
+Wrote 291044 bytes (229156 compressed) at 0x00410000 in 1.9 seconds (effective 1223.3 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
+Done
+bootloader/bootloader.bin | 0x0 | 22464 | 58be4685c416ee2a2667f9ea355c1e094b428d9c8401031a310295893c228f73
+voicekey.bin | 0x10000 | 422608 | 987d7e375c5fe86c6277ec51284d17e550f4ab28e72786978dd98191965899ab
+partition_table/partition-table.bin | 0x8000 | 3072 | 2b20bd22ecb09964c233a82504470c6818863aea98e4250ea4321d9e88fe8a10
+srmodels/srmodels.bin | 0x410000 | 291042 | 56990e6b97faeced7aeea48c89f15b0d0c579c012a8106b91e96141f490051a6
+PASS: 8 MB headers/configuration, partition MD5/integrity/types/flags/bounds, NVS/PHY, 4 MB app, 3 MB model, no OTA or led_strip

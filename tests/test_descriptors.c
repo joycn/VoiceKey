@@ -71,7 +71,7 @@ int main(void) {
     assert(pos == total && seen_itf == 15 && audio_alts == 3 && endpoints == 15 && feature == 2 && format == 2);
     assert(ac_end > ac_start);
     assert(tud_hid_descriptor_report_cb(0) != NULL && tud_hid_descriptor_report_cb(1) == NULL);
-    const uint8_t expected_feature[] = {0x95, VK_DIAGNOSTIC_SIZE, 0x09, 1, 0xb1, 2};
+    const uint8_t expected_feature[] = {0x96, VK_DIAGNOSTIC_SIZE & 0xff, VK_DIAGNOSTIC_SIZE >> 8, 0x09, 1, 0xb1, 2};
     const uint8_t *report = tud_hid_descriptor_report_cb(0); bool feature_found = false;
     for (unsigned i=0; i+sizeof(expected_feature)<=hid_report_length; ++i)
         if (!memcmp(report+i, expected_feature, sizeof(expected_feature))) feature_found = true;

@@ -33,6 +33,15 @@ static void playback_active(bool value) { vk_playback_active(&playback, value); 
 static void playback_packet(const int16_t *p, size_t n) { vk_playback_push(&playback, p, n); }
 static void playback_control(bool mute, int16_t volume) { vk_playback_control(&playback, mute, volume); }
 static uint32_t feedback(uint64_t now) { return vk_playback_feedback(&playback, consumed_frames, now); }
+static unsigned led_commands;
+static bool led_enabled;
+static uint8_t led_rgb[3];
+static void led_override(bool enabled, uint8_t r, uint8_t g, uint8_t b) {
+    led_commands++; led_enabled=enabled; led_rgb[0]=r;led_rgb[1]=g;led_rgb[2]=b;
+}
+static unsigned configs,semantic_commands;
+static void led_config(uint8_t mask,const uint8_t *c){assert(mask==127 && c[0]==5 && c[1]==255 && c[3]==1);configs++;}
+static void led_command(const uint8_t *b,size_t n){assert(n==384 && b[4]==3);semantic_commands++;}
 static size_t diagnostics(uint8_t *p, size_t n) { memset(p, 0x5a, n); return n; }
 bool tud_audio_n_fb_set(uint8_t id, uint32_t value) { assert(!id); feedback_value = value; feedback_submissions++; return true; }
 bool tud_audio_n_clear_ep_out_ff(uint8_t id) { assert(!id); received_len = 0; return true; }
@@ -222,15 +231,44 @@ static void check_task_feedback(void) {
     ready = true;
 }
 
+static void check_led_commands(void) {
+    uint8_t b[VK_DIAGNOSTIC_SIZE]={0}; memcpy(b,"VKLC",4);b[4]=1;b[5]=1;b[6]=255;b[8]=32;
+    tud_hid_set_report_cb(0,0,HID_REPORT_TYPE_FEATURE,b,sizeof(b));
+    assert(led_commands==1 && led_enabled && led_rgb[0]==255 && led_rgb[1]==0 && led_rgb[2]==32);
+    tud_hid_set_report_cb(0,0,HID_REPORT_TYPE_OUTPUT,b,sizeof(b));
+    tud_hid_set_report_cb(1,0,HID_REPORT_TYPE_FEATURE,b,sizeof(b));
+    tud_hid_set_report_cb(0,1,HID_REPORT_TYPE_FEATURE,b,sizeof(b));
+    tud_hid_set_report_cb(0,0,HID_REPORT_TYPE_FEATURE,NULL,sizeof(b));
+    for(unsigned n=0;n<sizeof(b);n++) tud_hid_set_report_cb(0,0,HID_REPORT_TYPE_FEATURE,b,n);
+    for(unsigned i=0;i<sizeof(b);i++) {
+        if(i>=6 && i<=8)continue;
+        uint8_t old=b[i];b[i]=0xff;
+        tud_hid_set_report_cb(0,0,HID_REPORT_TYPE_FEATURE,b,sizeof(b));b[i]=old;
+    }
+    b[5]=0;tud_hid_set_report_cb(0,0,HID_REPORT_TYPE_FEATURE,b,sizeof(b));
+    assert(led_commands==1);
+    memset(b+6,0,3);tud_hid_set_report_cb(0,0,HID_REPORT_TYPE_FEATURE,b,sizeof(b));
+    assert(led_commands==2 && !led_enabled);
+    b[5]=1;tud_hid_set_report_cb(0,0,HID_REPORT_TYPE_FEATURE,b,sizeof(b));
+    assert(led_commands==3 && led_enabled && !led_rgb[0] && !led_rgb[1] && !led_rgb[2]);
+    memset(b+5,0,sizeof(b)-5);b[4]=2;b[5]=1;b[6]=127;b[7]=5;b[8]=255;b[10]=1;
+    tud_hid_set_report_cb(0,0,HID_REPORT_TYPE_FEATURE,b,sizeof(b));assert(configs==1);
+    b[7]=6;tud_hid_set_report_cb(0,0,HID_REPORT_TYPE_FEATURE,b,sizeof(b));assert(configs==1);b[7]=5;
+    b[10]=2;tud_hid_set_report_cb(0,0,HID_REPORT_TYPE_FEATURE,b,sizeof(b));assert(configs==1);b[10]=1;
+    b[383]=1;tud_hid_set_report_cb(0,0,HID_REPORT_TYPE_FEATURE,b,sizeof(b));assert(configs==1);b[383]=0;
+    b[4]=3;tud_hid_set_report_cb(0,0,HID_REPORT_TYPE_FEATURE,b,sizeof(b));assert(semantic_commands==1);
+}
+
 int main(void) {
     vk_playback_init(&playback);
     vk_init(&state, 2000); vk_set_audio_ok(&state, true);
     const vk_usb_hooks_t hooks = {.audio_packet=audio_packet, .connected=connected, .streaming=streaming, .host_mute=host_mute,
         .playback_active=playback_active, .playback_packet=playback_packet, .playback_control=playback_control,
-        .feedback=feedback, .diagnostics=diagnostics, .hid_next=hid_next, .hid_commit=hid_commit};
+        .feedback=feedback, .led_command=led_command,.led_config=led_config,.led_override=led_override, .diagnostics=diagnostics, .hid_next=hid_next, .hid_commit=hid_commit};
     assert(vk_usb_start(NULL) == ESP_ERR_INVALID_ARG);
     assert(vk_usb_start(&hooks) == ESP_OK && task);
     tud_mount_cb();
+    check_led_commands();
     check_controls(); check_audio_lifecycle(); check_playback(); check_hid_delivery(); check_task_feedback();
     puts("PASS: actual USB callbacks + core: controls, mute, stream/suspend/resume, HID transport failures and expiration");
 }

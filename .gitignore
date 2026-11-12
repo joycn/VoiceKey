@@ -16,3 +16,6 @@ firmware/bringup/build/
 firmware/bringup/sdkconfig
 firmware/bringup/sdkconfig.old
 firmware/bringup/dependencies.lock
+
+# Local CLI Python environment
+.venv/

@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include "esp_err.h"
 #include "voicekey_core.h"
+#include "voicekey_led.h"
 
 /* Runtime hooks: bounded, nonblocking; called by the USB task, not ISR. */
 typedef struct {
@@ -15,6 +16,9 @@ typedef struct {
     void (*playback_packet)(const int16_t *samples, size_t frames);
     void (*playback_control)(bool mute, int16_t volume_db256);
     uint32_t (*feedback)(uint64_t now_us);
+    void (*led_command)(const uint8_t *report, size_t n);
+    void (*led_config)(uint8_t mask, const uint8_t *config);
+    void (*led_override)(bool enabled, uint8_t red, uint8_t green, uint8_t blue);
     size_t (*diagnostics)(uint8_t *buffer, size_t capacity);
     vk_hid_action_t (*hid_next)(uint64_t now_ms);
     void (*hid_commit)(vk_hid_action_t action, uint64_t now_ms);

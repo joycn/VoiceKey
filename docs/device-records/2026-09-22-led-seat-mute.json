@@ -1,0 +1,2256 @@
+{
+  "interval_seconds": 0.2,
+  "note": "No mute transition observed; physical-button acceptance pending",
+  "samples": [
+    {
+      "sample": 0,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 10078
+    },
+    {
+      "sample": 1,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 9865
+    },
+    {
+      "sample": 2,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 9676
+    },
+    {
+      "sample": 3,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 9466
+    },
+    {
+      "sample": 4,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 9253
+    },
+    {
+      "sample": 5,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 9058
+    },
+    {
+      "sample": 6,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 8845
+    },
+    {
+      "sample": 7,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 8647
+    },
+    {
+      "sample": 8,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 8443
+    },
+    {
+      "sample": 9,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 8248
+    },
+    {
+      "sample": 10,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 8035
+    },
+    {
+      "sample": 11,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 7843
+    },
+    {
+      "sample": 12,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 7636
+    },
+    {
+      "sample": 13,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 7423
+    },
+    {
+      "sample": 14,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 7213
+    },
+    {
+      "sample": 15,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 7018
+    },
+    {
+      "sample": 16,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 6808
+    },
+    {
+      "sample": 17,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 6598
+    },
+    {
+      "sample": 18,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 6403
+    },
+    {
+      "sample": 19,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 6193
+    },
+    {
+      "sample": 20,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 5998
+    },
+    {
+      "sample": 21,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 5806
+    },
+    {
+      "sample": 22,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 5581
+    },
+    {
+      "sample": 23,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 5392
+    },
+    {
+      "sample": 24,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 5179
+    },
+    {
+      "sample": 25,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 4999
+    },
+    {
+      "sample": 26,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 4786
+    },
+    {
+      "sample": 27,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 4561
+    },
+    {
+      "sample": 28,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 4360
+    },
+    {
+      "sample": 29,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 4147
+    },
+    {
+      "sample": 30,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 3964
+    },
+    {
+      "sample": 31,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 3760
+    },
+    {
+      "sample": 32,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 3556
+    },
+    {
+      "sample": 33,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 3343
+    },
+    {
+      "sample": 34,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 3130
+    },
+    {
+      "sample": 35,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 2947
+    },
+    {
+      "sample": 36,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 2722
+    },
+    {
+      "sample": 37,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 2515
+    },
+    {
+      "sample": 38,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 2311
+    },
+    {
+      "sample": 39,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 2116
+    },
+    {
+      "sample": 40,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 1903
+    },
+    {
+      "sample": 41,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 1714
+    },
+    {
+      "sample": 42,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 1504
+    },
+    {
+      "sample": 43,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 1300
+    },
+    {
+      "sample": 44,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 1087
+    },
+    {
+      "sample": 45,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 877
+    },
+    {
+      "sample": 46,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 670
+    },
+    {
+      "sample": 47,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 472
+    },
+    {
+      "sample": 48,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 262
+    },
+    {
+      "sample": 49,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "preview",
+      "result": "applied",
+      "reason": "none",
+      "remaining_ms": 52
+    },
+    {
+      "sample": 50,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 51,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 52,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 53,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 54,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 55,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 56,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 57,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 58,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 59,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 60,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 61,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 62,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 63,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 64,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 65,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 66,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 67,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 68,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 69,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 70,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 71,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 72,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 73,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 74,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 75,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 76,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 77,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 78,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 79,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 80,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 81,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 82,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 83,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 84,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 85,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 86,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 87,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 88,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 89,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 90,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 91,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 92,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 93,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 94,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 95,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 96,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 97,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 98,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 99,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 100,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 101,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 102,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 103,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 104,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 105,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 106,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 107,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 108,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 109,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 110,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 111,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 112,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 113,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 114,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 115,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 116,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 117,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 118,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 119,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 120,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 121,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 122,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 123,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 124,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 125,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 126,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 127,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 128,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 129,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 130,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 131,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 132,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 133,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 134,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 135,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 136,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 137,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 138,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 139,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 140,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 141,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 142,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 143,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 144,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 145,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 146,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 147,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 148,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 149,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 150,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 151,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 152,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 153,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 154,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 155,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 156,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 157,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 158,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 159,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 160,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 161,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 162,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 163,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 164,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 165,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 166,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 167,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 168,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 169,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 170,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 171,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 172,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 173,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 174,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 175,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 176,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 177,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 178,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 179,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 180,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 181,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 182,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 183,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 184,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 185,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 186,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 187,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 188,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 189,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 190,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 191,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 192,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 193,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 194,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 195,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 196,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 197,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 198,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 199,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 200,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 201,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 202,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 203,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 204,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 205,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 206,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 207,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 208,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 209,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 210,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 211,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 212,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 213,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 214,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 215,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 216,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 217,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 218,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 219,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 220,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 221,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 222,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 223,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    },
+    {
+      "sample": 224,
+      "microphone_muted": false,
+      "board_valid": true,
+      "i2c_errors": 0,
+      "source": "idle",
+      "result": "expired",
+      "reason": "expired",
+      "remaining_ms": 0
+    }
+  ]
+}

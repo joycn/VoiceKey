@@ -14,6 +14,7 @@ static i2c_master_dev_handle_t xmos;
 static portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED;
 static vk_board_status_t cache = {.muted = true};
 static uint32_t desired_led;
+static vk_led_t led = {.manual={3,30,1,0,255,255,255},.event_region=-1};
 static int transfer(void *ctx, const uint8_t *tx, size_t txlen, uint8_t *rx, size_t rxlen) {
     (void)ctx;
     /* Official I2C protocol: STOP after write, independent read. A successful
@@ -39,53 +40,70 @@ static void control(void *arg) {
     (void)arg;
     vk_xvf_t protocol = {.transfer = transfer, .retry_wait = retry_wait, .clock_ms = control_clock};
     vk_xvf_control_t controller = {0};
-    uint32_t last_led = UINT32_MAX;
+    vk_led_frame_t last_frame={0}; bool have_frame=false;
+    uint64_t last_frame_ms=0;
     uint8_t led_pending[4]={0}, led_step=0;
     uint64_t led_query_ms=0, led_started_ms=0;
     uint64_t agc_query_ms=0;
     vk_board_status_t next = {.muted = true};
     TickType_t tick = xTaskGetTickCount();
     for (;;) {
-        if (!controller.configured) last_led = UINT32_MAX;
+        if (!controller.configured) have_frame=false;
+        /* Timestamp before the transaction; safety polling follows direction,
+           so added I/O cannot rejuvenate an old physical-mute sample. */
+        next.direction=(vk_observation_t){0};
+        if (controller.configured && vk_runtime_direction_enabled())
+            next.direction=vk_xvf_direction(&protocol,esp_timer_get_time()/1000);
         vk_xvf_poll(&protocol, &controller, esp_timer_get_time() / 1000);
         next.valid = controller.valid; next.muted = controller.muted; next.i2s_active = controller.i2s_active;
         if (!next.valid) next.agc_valid=false;
         for (unsigned i = 0; i < 3; ++i) next.version[i] = controller.version[i];
         next.updated_ms = controller.updated_ms;
         next.control = controller;
-        if (!next.valid) last_led = UINT32_MAX;
-        portENTER_CRITICAL(&mux); uint32_t rgb = desired_led; portEXIT_CRITICAL(&mux);
-        /* All I2C, including LEDs, belongs to this task. Mute overrides UI. */
-        if (!next.valid || !next.i2s_active) rgb = 0x200020;
-        else if (next.muted) rgb = 0x200000;
-        if (!next.valid || rgb!=last_led) { next.led_valid=false; led_step=0; }
-        if (next.valid && rgb != last_led) {
-            /* XMOS owns animation: configure once per state change, no frame traffic.
-               White = idle breathe; blue UI token = trigger rainbow. */
-            uint8_t effect = rgb==0x202020 ? 1 : rgb==0x000020 ? 2 : rgb ? 3 : 0;
-            uint32_t color_rgb = effect==1 ? 0xffffff : rgb;
-            uint8_t color[] = {color_rgb, color_rgb>>8, color_rgb>>16, 0};
-            uint8_t brightness=effect==1 ? 255 : 30, speed=1, gamma=0;
-            /* White follows Seeed's RGB example (white instead of orange):
-               effect, color, speed 1, brightness 255; no gamma override.
-               Other states retain their previous brightness/gamma settings.
-               Apply effect first and brightness last, as in Seeed's example.
-               Mute/effect changes can replace XMOS LED settings: initialization
-               alone cannot keep the requested brightness after a transition. */
-            if (vk_xvf_set(&protocol,20,12,&effect,1) &&
-                vk_xvf_set(&protocol,20,16,color,4) &&
-                vk_xvf_set(&protocol,20,15,&speed,1) &&
-                (effect==1 || vk_xvf_set(&protocol,20,14,&gamma,1)) &&
-                vk_xvf_set(&protocol,20,13,&brightness,1)) {
-                last_led=rgb;
-            } else {
-                next.valid = false; next.control.error = VK_XVF_IO; next.control.aec_valid = false; last_led = UINT32_MAX;
-            }
+        if (!next.valid) {have_frame=false;portENTER_CRITICAL(&mux);led.applied_valid=false;portEXIT_CRITICAL(&mux);}
+        vk_led_inputs_t input; vk_runtime_led_inputs(&input);
+        input.fault = input.fault || !next.valid || !next.i2s_active;
+        input.muted = next.muted;
+        uint64_t render_now=esp_timer_get_time()/1000;
+        vk_led_frame_t frame;
+        portENTER_CRITICAL(&mux);
+        vk_led_render(&led,&input,desired_led,render_now,&frame);
+        uint32_t request=led.request_id;
+        portEXIT_CRITICAL(&mux);
+        bool changed=!have_frame || memcmp(&frame,&last_frame,sizeof(frame));
+        uint8_t *config=frame.config;
+        uint8_t effect=config[0],brightness=config[1],speed=config[2],gamma=config[3];
+        if (!next.valid || changed) { next.led_valid=false; led_step=0; }
+        /* Safety indicators bypass the animation rate limit. All other writes
+           are coalesced to <=10 frames/s, regardless of host command frequency. */
+        bool due=effect!=5 || !have_frame || input.fault || input.muted || render_now-last_frame_ms>=100;
+        if (next.valid && changed && due) {
+            uint8_t color[]={config[6],config[5],config[4],0},doa[8]={0},ring[48]={0};
+            for(unsigned i=0;i<2;i++)for(unsigned j=0;j<3;j++)doa[i*4+j]=config[7+i*3+2-j];
+            for(unsigned i=0;i<12;i++)for(unsigned j=0;j<3;j++)ring[i*4+j]=config[13+i*3+2-j];
+            /* Ring animation frames only update the color payload when controls
+               have not changed; do not restart the effect every frame. */
+            bool colors_only=have_frame && effect==5 && last_frame.config[0]==5 &&
+                !memcmp(config,last_frame.config,13) && frame.preserve_gamma==last_frame.preserve_gamma;
+            bool ok=(colors_only || (vk_xvf_set(&protocol,20,12,&effect,1) &&
+                vk_xvf_set(&protocol,20,16,color,4) && vk_xvf_set(&protocol,20,15,&speed,1) &&
+                (frame.preserve_gamma || vk_xvf_set(&protocol,20,14,&gamma,1)) &&
+                vk_xvf_set(&protocol,20,13,&brightness,1))) &&
+                (effect!=4 || vk_xvf_set(&protocol,20,17,doa,sizeof(doa))) &&
+                (effect!=5 || vk_xvf_set(&protocol,20,19,ring,sizeof(ring)));
+            portENTER_CRITICAL(&mux);
+            if(led.request_id==request)vk_led_applied(&led,&frame,ok);
+            else {led.applied_valid=ok;if(ok)led.applied=frame;}
+            portEXIT_CRITICAL(&mux);
+            last_frame_ms=render_now;
+            if(ok){last_frame=frame;have_frame=true;}
+            else {next.valid=false;next.control.error=VK_XVF_IO;next.control.aec_valid=false;have_frame=false;}
         }
+        bool settled=have_frame&&!memcmp(&frame,&last_frame,sizeof(frame));
         /* Read one cosmetic parameter at most every 250ms, away from writes.
            A diagnostic read failure invalidates only this snapshot. */
         uint64_t led_now=esp_timer_get_time()/1000;
-        if (next.valid && rgb==last_led && led_now-led_query_ms>=250) {
+        if (next.valid && settled && led_now-led_query_ms>=250) {
             const uint8_t commands[]={12,13,15,14};
             led_query_ms=led_now;
             if (!led_step) led_started_ms=led_now;
@@ -96,12 +114,11 @@ static void control(void *arg) {
                     /* Detect autonomous XMOS setting changes without restarting
                        a healthy animation on every poll. Retry only after a
                        complete, successful, low-frequency snapshot. */
-                    uint8_t expected_effect=rgb==0x202020 ? 1 : rgb==0x000020 ? 2 : rgb ? 3 : 0;
-                    if (led_pending[0]!=expected_effect || led_pending[1]!=(expected_effect==1 ? 255 : 30) ||
-                        led_pending[2]!=1 || (expected_effect!=1 && led_pending[3]!=0)) last_led=UINT32_MAX;
+                    if (led_pending[0]!=effect || led_pending[1]!=brightness ||
+                        led_pending[2]!=speed || (!frame.preserve_gamma && led_pending[3]!=gamma)) have_frame=false;
                 }
             } else { next.led_valid=false; led_step=0; }
-        } else if (next.valid && rgb==last_led && led_now-agc_query_ms>=1000) {
+        } else if (next.valid && settled && led_now-agc_query_ms>=1000) {
             /* Read-only telemetry, separate from LED transactions. Failure must
                not retain an old gain as current or reconfigure audio. */
             uint8_t raw[4]; float gain;
@@ -151,4 +168,18 @@ bool vk_board_muted(void) {
 bool vk_board_button(void) { return gpio_get_level(VK_PIN_BUTTON) == 0; }
 void vk_board_led(uint8_t r, uint8_t g, uint8_t b) {
     portENTER_CRITICAL(&mux); desired_led = ((uint32_t)r << 16) | ((uint32_t)g << 8) | b; portEXIT_CRITICAL(&mux);
+}
+
+void vk_board_led_override(bool enabled,uint8_t r,uint8_t g,uint8_t b) {
+    portENTER_CRITICAL(&mux);vk_led_legacy(&led,enabled,r,g,b);portEXIT_CRITICAL(&mux);
+}
+void vk_board_led_config(uint8_t mask,const uint8_t *config) {
+    portENTER_CRITICAL(&mux);vk_led_patch(&led,mask,config);portEXIT_CRITICAL(&mux);
+}
+void vk_board_led_command(const uint8_t *report,size_t n) {
+    uint64_t now=esp_timer_get_time()/1000;
+    portENTER_CRITICAL(&mux);vk_led_command(&led,report,n,now);portEXIT_CRITICAL(&mux);
+}
+void vk_board_led_diagnostics(uint8_t *out) {
+    portENTER_CRITICAL(&mux);vk_led_diagnostics(&led,out);portEXIT_CRITICAL(&mux);
 }

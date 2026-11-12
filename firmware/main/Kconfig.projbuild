@@ -1,4 +1,11 @@
 menu "VoiceKey"
+config VOICEKEY_SPATIAL
+    bool "Enable experimental single-sector first-speaker mode at boot"
+    default n
+    help
+        Enables device-native 0 +/-30 degrees, 250ms confirmation and 2s lease.
+        Calibrate orientation before use. Firmware C APIs can configure up to
+        eight regions and manual/keyword policies. No acoustic isolation guarantee.
 config VOICEKEY_PCM_GAIN
     int "PCM integer gain (saturating)"
     range 1 8

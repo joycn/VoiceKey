@@ -69,7 +69,7 @@ int main(void) {
     simulated.valid=false; vk_runtime_inputs(); assert(state.muted);
     simulated.valid=true; vk_runtime_inputs();
     vk_runtime_init_status(0, 0, 0x105, true); assert(!vk_runtime_wake_ready());
-    uint8_t diag[VK_DIAGNOSTIC_SIZE]; assert(captured.diagnostics(diag,sizeof(diag))==sizeof(diag) && diag[0]==3 && diag[1]==1 && diag[3]==8);
+    uint8_t diag[VK_DIAGNOSTIC_SIZE]; assert(captured.diagnostics(diag,sizeof(diag))==sizeof(diag) && diag[0]==5 && diag[1]==1 && diag[3]==8);
     assert(diag[56]==0x12 && diag[57]==0x34 && diag[72]==5 && diag[73]==1);
     assert((diag[7]&32) && !(diag[7]&16));
     assert(diag[78]==0x80 && diag[80]==0x40 && diag[81]==0xe2 && diag[82]==1);
@@ -132,3 +132,10 @@ int main(void) {
     assert(!diag[165]);
     puts("PASS: actual runtime cache/epoch/new-wake gates, DMA mute independence, stop/restart/disconnect clearing and diagnostic identity");
 }
+
+void vk_board_led_override(bool enabled,uint8_t r,uint8_t g,uint8_t b) {(void)enabled;(void)r;(void)g;(void)b;}
+
+void vk_board_led_config(uint8_t mask,const uint8_t *config) {(void)mask;(void)config;}
+
+void vk_board_led_command(const uint8_t *report,size_t n) {(void)report;(void)n;}
+void vk_board_led_diagnostics(uint8_t *out) {memset(out,0,160);}

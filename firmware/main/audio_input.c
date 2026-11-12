@@ -29,6 +29,8 @@ static void capture(void *arg) {
     vk_decimator_reset(&fir);
     bool healthy = false;
     uint32_t previous_epoch = UINT32_MAX, previous_generation = UINT32_MAX;
+    uint32_t previous_route = UINT32_MAX;
+    size_t route_discard_frames = 0;
     for (;;) {
         if (atomic_exchange(&overflow, false)) {
             healthy = false; vk_runtime_audio_ok(false); vk_decimator_reset(&fir);
@@ -42,6 +44,14 @@ static void capture(void *arg) {
             previous_epoch = epoch;
         }
         uint32_t generation = vk_runtime_capture_generation();
+        uint32_t route = vk_runtime_route_generation();
+        if (route != previous_route) {
+            vk_decimator_reset(&fir);
+            /* Drain queued RX descriptors plus the currently filling one.
+               Do not restart physical capture for a logical routing change. */
+            if (previous_route != UINT32_MAX) route_discard_frames=4*48;
+            previous_route=route;
+        }
         if (generation != previous_generation) {
             healthy = false; vk_decimator_reset(&fir); previous_generation = generation;
         }
@@ -65,8 +75,13 @@ static void capture(void *arg) {
         if (atomic_load(&overflow) || vk_board_muted() || epoch != vk_runtime_audio_epoch()) {
             vk_decimator_reset(&fir); continue;
         }
+        if (route_discard_frames) {
+            size_t frames=bytes/8;
+            route_discard_frames=frames>=route_discard_frames?0:route_discard_frames-frames;
+            vk_decimator_reset(&fir); continue;
+        }
         size_t n = vk_decimate(&fir, stereo, bytes / 8, mono, CONFIG_VOICEKEY_PCM_GAIN);
-        vk_runtime_publish(mono, n, epoch);
+        vk_runtime_publish_routed(mono, n, epoch, route);
     }
 }
 esp_err_t vk_audio_start(void) {

@@ -1,0 +1,10 @@
+{
+  "zero_degrees": 0,
+  "direction": "clockwise",
+  "seats": [
+    {"name": "A", "region": 0, "center_degrees": 0, "width_degrees": 40},
+    {"name": "B", "region": 1, "center_degrees": 90, "width_degrees": 40},
+    {"name": "C", "region": 2, "center_degrees": 180, "width_degrees": 40},
+    {"name": "D", "region": 3, "center_degrees": 270, "width_degrees": 40}
+  ]
+}

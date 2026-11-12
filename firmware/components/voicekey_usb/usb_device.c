@@ -194,5 +194,27 @@ uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_t
     return n;
 }
 void tud_hid_set_report_cb(uint8_t instance, uint8_t id, hid_report_type_t type, uint8_t const *buf, uint16_t len) {
-    (void)instance; (void)id; (void)type; (void)buf; (void)len; /* Keyboard LED output is not microphone mute. */
+    /* Unnumbered vendor Feature write; keyboard LED output is unrelated. */
+    if (instance || id || type != HID_REPORT_TYPE_FEATURE || !buf ||
+        len != VK_DIAGNOSTIC_SIZE || memcmp(buf, "VKLC", 4)) return;
+    if (buf[4] == 3) {
+        if(hooks.led_command)hooks.led_command(buf,len);
+        return;
+    }
+    if (buf[4] == 2) {
+        if (buf[5] != 1 || !buf[6] || (buf[6] & ~VK_LED_FIELD_MASK) || !hooks.led_config) return;
+        const uint8_t *c=buf+7;
+        if (((buf[6]&1) && c[0]>5) || ((buf[6]&8) && c[3]>1)) return;
+        const uint8_t offsets[]={0,1,2,3,4,7,13,49};
+        for (unsigned f=0;f<7;f++)
+            if (!(buf[6] & (1u<<f)))
+                for (unsigned j=offsets[f];j<offsets[f+1];j++) if(c[j]) return;
+        for (uint16_t i=7+VK_LED_CONFIG_SIZE;i<len;i++) if(buf[i]) return;
+        hooks.led_config(buf[6],c);
+        return;
+    }
+    if (buf[4] != 1 || buf[5] > 1 || !hooks.led_override) return;
+    if (!buf[5] && (buf[6] || buf[7] || buf[8])) return;
+    for (uint16_t i=9; i<len; ++i) if (buf[i]) return;
+    hooks.led_override(buf[5] == 1, buf[6], buf[7], buf[8]);
 }

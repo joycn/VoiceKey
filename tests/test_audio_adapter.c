@@ -11,6 +11,8 @@ static jmp_buf finished;
 static unsigned read_step, rx_disables, rx_enables;
 static uint64_t clock_us = 100000;
 static bool mic_muted, clock_fault_next_poll;
+static vk_observation_t direction;
+static unsigned route_rx_disables;
 static int32_t buffers[3][96];
 static unsigned dma_index;
 static int16_t host[288];
@@ -27,7 +29,7 @@ uint32_t esp_get_minimum_free_heap_size(void) { return 90000; }
 const esp_app_desc_t *esp_app_get_description(void) { static esp_app_desc_t d; return &d; }
 void vk_board_status(vk_board_status_t *b) {
     if(clock_fault_next_poll){clock_us+=6000;clock_fault_next_poll=false;}
-    *b=(vk_board_status_t){.valid=true,.muted=mic_muted,.i2s_active=true,.updated_ms=clock_us/1000}; }
+    *b=(vk_board_status_t){.valid=true,.muted=mic_muted,.i2s_active=true,.updated_ms=clock_us/1000,.direction=direction}; }
 bool vk_board_muted(void) { return mic_muted; }
 bool vk_board_button(void) { return false; }
 void vk_board_led(uint8_t r,uint8_t g,uint8_t b) { (void)r;(void)g;(void)b; }
@@ -76,6 +78,14 @@ esp_err_t i2s_channel_read(i2s_chan_handle_t h,void *data,size_t requested,size_
         for(unsigned i=0;i<288;i++)fresh[i]=(i%2)?0:0x10000000;
         assert(vk_decimate(&fir,fresh,144,expected,1)==48);
         for(unsigned i=0;i<48;i++)assert(state.wake.data[(state.wake.head+i)%state.wake.capacity]==expected[i]);
+        direction=(vk_observation_t){true,true,0,clock_us/1000};
+        vk_spatial_config_t config=vk_spatial_defaults();config.enabled=true;config.policy=VK_FLOOR_MANUAL;
+        assert(vk_runtime_voice_configure(&config));assert(vk_runtime_floor_request(0,true));
+        route_rx_disables=rx_disables;
+    }
+    if(step>=20 && step<=22) assert(!state.usb.count && !state.wake.count);
+    if(step==23) {
+        assert(state.wake.count==48 && rx_disables==route_rx_disables);
         longjmp(finished,1);
     }
     if(step==11) for(unsigned i=0;i<251;i++)dma_tick(); /* clock requalification during recovery read */
@@ -146,3 +156,10 @@ int main(void) {
     for(unsigned i=0;i<3;i++)for(unsigned j=0;j<96;j++)assert(buffers[i][j]==0);
     puts("PASS: actual audio task/callback overflow admission, partial/timeout reads, RX epochs/recovery/FIR reset and TX-before-RX clock recovery without stale replay");
 }
+
+void vk_board_led_override(bool enabled,uint8_t r,uint8_t g,uint8_t b) {(void)enabled;(void)r;(void)g;(void)b;}
+
+void vk_board_led_config(uint8_t mask,const uint8_t *config) {(void)mask;(void)config;}
+
+void vk_board_led_command(const uint8_t *report,size_t n) {(void)report;(void)n;}
+void vk_board_led_diagnostics(uint8_t *out) {memset(out,0,160);}

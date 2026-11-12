@@ -22,6 +22,7 @@ typedef struct {
     uint32_t agc_gain_bits;
     uint64_t agc_updated_ms;
     vk_xvf_control_t control;
+    vk_observation_t direction;
 } vk_board_status_t;
 esp_err_t vk_board_init(void);
 esp_err_t vk_board_xmos_init(void);
@@ -29,3 +30,11 @@ void vk_board_status(vk_board_status_t *status);
 bool vk_board_muted(void);
 bool vk_board_button(void);
 void vk_board_led(uint8_t red, uint8_t green, uint8_t blue);
+
+void vk_board_led_override(bool enabled, uint8_t red, uint8_t green, uint8_t blue);
+
+#include "voicekey_led.h"
+void vk_board_led_config(uint8_t mask, const uint8_t *config);
+
+void vk_board_led_command(const uint8_t *report, size_t n);
+void vk_board_led_diagnostics(uint8_t *out160);

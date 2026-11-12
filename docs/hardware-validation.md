@@ -22,7 +22,7 @@
 - [ ] 同时录放，检查异步显式反馈、主音量(-60..0 dB)/主静音、采集host mute独立性。
 - [ ] alternate0/1、停止、欠载、溢出、暂停/恢复、拔插和快速重连均不重放旧音频；不足补零。检查超过5ms无TX进展后DMA预填缓冲被清除，主机在故障期间继续送包以及TX早于RX恢复均不重放，并区分已送入DAC的不可撤回样本。
 - [ ] 真正独立时钟漂移、USB主机停顿、WakeNet繁忙时长运行：先30分钟再8小时，记录队列水位、丢帧/欠载、PSRAM、堆、任务时延。时长为实验建议，非已批准可靠性门槛。
-- [ ] 在实际macOS通过一次性HID脚本取得完整192-byte schema3报告，验证应用hash与当次ELF一致，并记录wake ready、board/audio/wake初始化错误、实际PSRAM与free/minimum heap。测量USB总电流及suspend电流。
+- [ ] 在实际macOS通过一次性HID脚本取得完整224-byte schema4报告（旧固件为192-byte schema3），验证应用hash与当次ELF一致，并记录wake ready、board/audio/wake初始化错误、实际PSRAM与free/minimum heap。测量USB总电流及suspend电流。
 
 ## WakeNet、Shift+Option+Command+S与ChatGPT
 
@@ -43,7 +43,7 @@
 ## 官方资料复核新增验收
 
 - [ ] 拍照记录板版本与朝向：带Seeed标志、进音孔的一面朝向声源，壳体不遮孔；记录音箱距离、方向、音量与支架振动隔离。
-- [ ] 保存schema3原始报告：BLD_MSG、USB_BIT_DEPTH=(0,0)、OP_PACKED=(0,0)、OP_UPSAMPLE=(1,1)、版本和实测速率。构建字符串不能证明运行镜像的SHA256；维护前另行核对固定镜像。
+- [ ] 保存与固件对应的schema3/schema4原始报告：BLD_MSG、USB_BIT_DEPTH=(0,0)、OP_PACKED=(0,0)、OP_UPSAMPLE=(1,1)、版本和实测速率。构建字符串不能证明运行镜像的SHA256；维护前另行核对固定镜像。
 - [ ] 逻辑分析仪确认WS48 kHz、32-bit stereo有效位/左右声道；测量启动至少250 ms采集关闭，稳定后开放。检查错误速率、时钟暂停/恢复、格式被改动后的关闭与新音频恢复。软件±1%窗口仅排除错误工作模式，不替代物理时钟精度验收。
 - [ ] 连续保存AEC收敛、SHF旁路和参考增益快照，覆盖无播放、仅播放、近端说话和双讲；状态须与WAV残余回声、唤醒误触发和首句完整性一起判读。无参考时未收敛不直接判失败。注入I2C读取失败，确认采集关闭、AEC显示无效且播放继续。
 - [ ] 可选功耗实验：使用3.5 mm有源音箱，在核对实物GPIO与恢复方法后比较板载功放默认状态和X0D31高电平关闭状态的USB电流、温升、3.5 mm输出与AEC表现。禁止改动X0D30麦克风静音或X0D33 LED电源；应用当前不自动关闭功放。实验后恢复原设置。

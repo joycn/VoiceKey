@@ -84,12 +84,32 @@ void vk_set_host_mute(vk_state_t *s, bool muted) {
     vk_fifo_clear(&s->usb);
 }
 void vk_publish(vk_state_t *s, const int16_t *samples, size_t count, uint32_t epoch) {
+    vk_publish_routed(s,samples,count,epoch,false);
+}
+void vk_set_output_gate(vk_state_t *s, bool blocked) {
+    if (s->output_blocked==blocked) return;
+    s->output_blocked=blocked; vk_fifo_clear(&s->usb);
+    if (blocked) s->pending=false;
+}
+void vk_reset_listener(vk_state_t *s) {
+    vk_fifo_clear(&s->wake); s->wake_epoch++; s->pending=false;
+}
+void vk_publish_routed(vk_state_t *s, const int16_t *samples, size_t count, uint32_t epoch, bool silent_listener) {
     if (s->muted || !s->audio_ok || epoch != s->audio_epoch) return;
-    if (s->streaming && s->connected && !s->host_mute) vk_fifo_push(&s->usb, samples, count);
-    if (vk_fifo_push(&s->wake, samples, count)) s->wake_epoch++;
+    if (s->streaming && s->connected && !s->host_mute && !s->output_blocked) vk_fifo_push(&s->usb, samples, count);
+    if (!silent_listener) {
+        if (vk_fifo_push(&s->wake, samples, count)) s->wake_epoch++;
+    } else {
+        static const int16_t zeros[48]={0};
+        while (count) {
+            size_t n=count>48 ? 48 : count;
+            if (vk_fifo_push(&s->wake,zeros,n)) s->wake_epoch++;
+            count-=n;
+        }
+    }
 }
 size_t vk_usb_packet_samples(const vk_state_t *s) {
-    if (s->muted || s->host_mute || !s->audio_ok) return 16;
+    if (s->muted || s->host_mute || s->output_blocked || !s->audio_ok) return 16;
     /* Async endpoint permits +/- one sample around 16/ms for clock drift. */
     if (s->usb.count > 320) return 17;
     if (s->usb.count < 32) return 15;
@@ -97,7 +117,7 @@ size_t vk_usb_packet_samples(const vk_state_t *s) {
 }
 size_t vk_usb_read(vk_state_t *s, int16_t *out, size_t count) {
     memset(out, 0, count * sizeof(*out));
-    if (s->muted || s->host_mute || !s->audio_ok || !s->streaming || !s->connected) return 0;
+    if (s->muted || s->host_mute || s->output_blocked || !s->audio_ok || !s->streaming || !s->connected) return 0;
     size_t got = vk_fifo_pop(&s->usb, out, count);
     s->usb.missing += count - got;
     return got;

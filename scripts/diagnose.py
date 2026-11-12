@@ -30,10 +30,10 @@ def open_device(hid, vid, pid):
 def decode(raw):
     b = bytes(raw)
     # hidapi includes the report-ID byte on some backends for unnumbered reports.
-    if len(b) == 193 and b[0] == 0:
+    if len(b) in (193,225,385) and b[0] == 0:
         b = b[1:]
-    if len(b) != 192 or b[0] != 3:
-        raise ValueError('Expected diagnostic schema 3, 192 bytes')
+    if not ((len(b)==192 and b[0]==3) or (len(b)==224 and b[0]==4) or (len(b)==384 and b[0]==5)):
+        raise ValueError('Expected schema3/192, schema4/224 or schema5/384 bytes')
     names = ['i2c_errors', 'i2c_busy', 'cache_age_ms', 'usb_samples', 'wake_samples', 'playback_frames',
              'usb_dropped', 'usb_missing', 'wake_dropped', 'playback_dropped', 'playback_missing', 'i2s_consumed_frames']
     result = dict(zip(names, struct.unpack_from('<12I', b, 8)))
@@ -85,6 +85,47 @@ def decode(raw):
                   trigger_suppressed_mod65536=struct.unpack_from('<H',b,190)[0] if ext else None,
                   capture_gate_closed=bool(b[175]&2) if ext else None,
                   host_microphone_muted=bool(b[175]&4) if ext else None)
+    result['spatial_available'] = b[0] >= 4
+    if b[0] >= 4:
+        valid = bool(b[192]&2)
+        reasons = ['bypass','unavailable','silence','unknown_region','no_owner','other_region','outside_lock','allow']
+        result.update(spatial_enabled=bool(b[192]&1), direction_valid=valid,
+                      observe_only=bool(b[192]&16),
+                      direction_speech=bool(b[192]&4) if valid else None,
+                      output_allowed=bool(b[192]&8),
+                      output_reason=reasons[b[193]] if b[193]<len(reasons) else 'unknown',
+                      direction_region=b[194]-1 if valid and b[194] else None,
+                      floor_owner=b[195]-1 if b[195] else None,
+                      direction_degrees=struct.unpack_from('<H',b,196)[0] if valid else None,
+                      locked_degrees=struct.unpack_from('<H',b,198)[0] if b[195] else None,
+                      direction_age_ms=struct.unpack_from('<I',b,200)[0],
+                      floor_generation=struct.unpack_from('<I',b,204)[0],
+                      route_generation=struct.unpack_from('<I',b,208)[0],
+                      listener_region=b[212]-1 if b[212] else None,
+                      floor_policy=b[213], region_count=b[214], source_capabilities=b[215],
+                      listener_age_ms=struct.unpack_from('<I',b,216)[0],
+                      confirmation_ms=struct.unpack_from('<H',b,220)[0],
+                      lock_tolerance_degrees=struct.unpack_from('<H',b,222)[0])
+    if b[0] == 5:
+        def choice(value, names):
+            return names[value] if value < len(names) else 'unknown'
+        result['led_control'] = {
+            'request_id': struct.unpack_from('<I', b, 224)[0],
+            'result': choice(b[228], ['none','received','applied','covered','failed','expired']),
+            'mode': choice(b[229], ['auto','manual','preview','identify']),
+            'source': choice(b[230], ['idle','fault','mute','identify','preview','manual','event','owner','receiving']),
+            'target_region': b[231]-1 if b[231] else None,
+            'remaining_ms': struct.unpack_from('<I', b, 232)[0],
+            'reason': choice(b[236], ['none','fault','mute','not_ready','invalid','i2c','disconnected','expired','temporary_override']),
+            'applied_valid': bool(b[237]) and result['board_valid'],
+            'layout_count': b[238], 'preview_state': b[239],
+            'applied_config': list(b[240:289]) if b[237] and result['board_valid'] else None,
+            'gamma_preserved': bool(b[289]),
+            'layout_token': struct.unpack_from('<I', b, 292)[0],
+            'region_masks': list(struct.unpack_from('<8H', b, 296)),
+            'manual_config': list(b[328:377]),
+            'color_readback': 'Only active-effect colors were verified at write time; inactive fields are configuration, not readback',
+        }
     return result
 
 def main():
@@ -103,7 +144,7 @@ def main():
         for index in range(a.samples):
             if index:
                 time.sleep(a.interval)
-            report = decode(device.get_feature_report(0,193))
+            report = decode(device.get_feature_report(0,385))
             if a.samples > 1:
                 report['elapsed_seconds'] = round(time.monotonic() - start, 3)
             print(json.dumps(report, indent=2 if a.samples == 1 else None), flush=True)
